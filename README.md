@@ -66,7 +66,7 @@
 - POST /mytrips/:destinations/:map
   - updates activities list based on the pins marked on the leaflet map
   - updates map with the search bar input criteria
-  
+
 - GET /flightsearch
   - renders flights.hbs
 
@@ -143,11 +143,11 @@
 
 ## Links
 
-### Trello: [click here] (https://trello.com/b/gZUq22Ry/kanban-to-dos)
+### Trello: [click here](https://trello.com/b/gZUq22Ry/kanban-to-dos)
 
-### Git: [GitHub repository] (https://github.com/mariorui97/travelly) 
+### Git: [GitHub repository](https://github.com/mariorui97/travelly) 
 
-### figma: [figma wireframe and ux flow] (https://www.figma.com/file/UVGJmAEJcFodWOTMGN3DAA/Untitled?node-id=0%3A1)
+### figma: [figma wireframe and ux flow](https://www.figma.com/file/UVGJmAEJcFodWOTMGN3DAA/Untitled?node-id=0%3A1)
 
 ### Slides
 [Google Slides Link]
