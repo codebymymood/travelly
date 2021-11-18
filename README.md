@@ -6,8 +6,7 @@
 <br>
 
 ## User stories
-- **404** - As a user, I want to see a nice 404 page when I go to a page that doesn’t exist so that I know it was my fault.
-- **500** - As a user, I want to see a nice error page when the super team screws it up so that I know that is not my fault
+
 - **login-signup** - As a user, I want to see a welcome page that gives me the option to either log in as an existing user or sign up with a new account.
 - **add-signup** - As a user, I want to sign up with my information so that I can safely plan my trips.
 - **homepage** - As a user, I want to see places in the world where I can search and plan for my trip.
@@ -17,6 +16,8 @@
 - **trip-planner** - As a user, I want to insert the dates for my trip and add the tourist attractions I pick from the suggestions the app provides to me. I also want to add reminders of important things to keep in my for my trip.
 - **map-viewer** - As a user, I want to see the tourist attractions I have in my planner showing up on the map with pinpoints. That will help me understand the distance between locations. Also, I'd like to be able to search for a specific location and add it to my planner.
 - **flight-page** - [backlog] As a user, I'd like to check for the latest flight prices for my trip or even to plan future trips.
+- **404** - As a user, I want to see a nice 404 page when I go to a page that doesn’t exist so that I know it was my fault.
+- **500** - As a user, I want to see a nice error page when the super team screws it up so that I know that is not my fault.
 
 <br>
 
@@ -25,34 +26,48 @@
 - GET / 
   - renders index.hbs
 
-- GET /auth/signup
-  - renders auth.hbs
-
-- GET /auth............. ???????????
-    
-
-- POST /auth/signup
+- GET /auth
   - redirects to /profile  if user is logged in
   - renders auth.hbs
-    - body: username, email, password, (google passport)
+      - body: username, email, password, (google passport)
+
+- POST /auth
+  - redirects to /profile
 
 - GET /profile
   - renders profile.hbs
   
+- POST /profile 
+  - redirect to /profile
+  
 - GET /profile/edit
   - renders edit-profile.hbs
+  
+- POST /profile/edit
   - redirects to /profile
 
 - GET /mytrips  
   - renders mytrips.hbs
 
-- GET /destinations
+- POST /mytrips
+  - renders mytrips.hbs with destinations based on the country inserted on the searchbar
+  - redirects to /mytrips 
+
+- GET /mytrips/:destinations
   - renders destinations.hbs
 
-- GET /map
+- POST /mytrips/:destinations
+  - update destinations.hbs with the chosen destination 
+  - filter activities within that destination
+
+- GET /mytrips/:destinations/:map
   - renders map.hbs
 
-- GET /flights
+- POST /mytrips/:destinations/:map
+  - updates activities list based on the pins marked on the leaflet map
+  - updates map with the search bar input criteria
+  
+- GET /flightsearch
   - renders flights.hbs
 
 - GET /errorpage
@@ -60,70 +75,6 @@
 
 - GET /notfound
  - renders notfound.hbs
-  
-
-
-
-
-
-
-- POST /auth/logout
-  - body: (empty)
-
-- GET /
-  - renders homepage.hbs (the profile preview + search form)
-- POST /homepage (search action)
-  - body: 
-    - game-title
-    - console
-- GET /game-search-results
-  - renders game-search-results.hbs
-  - includes the list of games
-  - redirects to / if user presses button
-- GET /rent-form/:id
-  - renders rent-form.hbs
-  - redirects to /game-search-results if user presses button
-- POST /rent-form/:id
-  - body: 
-     - days
-     - price update
-- GET /success
-  - renders success.hbs
-  - redirects to / if user presses button
-  
-- GET /profile
-  - renders user-profile.hbs
-  - redirects to / if user presses button
-- POST /profile (to edit profile)
-  - redirects to /add-signup (we reuse it but for edit purposes)
-  - body:
-    - email
-    - password
-    - full name
-    - birthday
-    - gender
-    - address
-    - phone
-    - cardInfo
-    - typeOfCard
-    - cardNumber
-    - expDate
-    - CVV
-- POST /profile (to add game)
-  - body:
-    - game title
-    - console
-    - price
-    - max days of rent
-- GET /profile
-  - renders user-profile.hbs updated
-  - redirects to / if user presses button
-- GET /notifications
-  - renders notifications.hbs
-  - redirects to / if user presses button
-- GET /success (for renter)
-  - renders success.hbs
-  - redirects to /notifications if user presses button
 
 <br>
 
@@ -192,11 +143,11 @@
 
 ## Links
 
-### Trello[https://trello.com/b/gZUq22Ry/kanban-to-dos]
+### Trello: [click here] (https://trello.com/b/gZUq22Ry/kanban-to-dos)
 
-### Git[https://github.com/mariorui97/travelly] 
+### Git: [GitHub repository] (https://github.com/mariorui97/travelly) 
 
-### figma[https://www.figma.com/file/UVGJmAEJcFodWOTMGN3DAA/Untitled?node-id=0%3A1]
+### figma: [figma wireframe and ux flow] (https://www.figma.com/file/UVGJmAEJcFodWOTMGN3DAA/Untitled?node-id=0%3A1)
 
 ### Slides
 [Google Slides Link]
