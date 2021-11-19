@@ -1,6 +1,6 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #E1ECF7;
 }
 
 a {
@@ -9,4 +9,8 @@ a {
 
 h1 {
   color: 15px;
+}
+
+footer{
+  margin-bottom: 0px;
 }

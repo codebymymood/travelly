@@ -1,9 +1,8 @@
-<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css" />
 <link rel="stylesheet" href="/stylesheets/auth-style.css" />
 
 <div class="container" id="container">
 	<div class="form-container sign-up-container">
-		<form action="/auth/signup" method="POST">
+		<form action="/auth" method="POST">
 			<h1>Create Account</h1>
 			<div class="social-container">				
 				<a href="#" class="social"><i class="fab fa-google-plus"></i></a>			
@@ -12,11 +11,12 @@
 			<input type="text" name="name" placeholder="Name" />
 			<input type="email" name="email" placeholder="Email" />
 			<input type="password" name="password" placeholder="Password" />
-			<button>Sign Up</button>
+			<button type="submit">Sign Up</button>
 		</form>
 	</div>
+
 	<div class="form-container sign-in-container">
-		<form action="/auth/signin" method="POST">
+		<form action="/auth" method="POST">
 			<h1>Sign in</h1>
 			<div class="social-container">
 				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
@@ -25,7 +25,7 @@
 			<input type="email" name="email" placeholder="Email" />
 			<input type="password" name="password" placeholder="Password" />
 			<a href="#">Forgot your password?</a>
-			<button>Sign In</button>
+			<button type="submit">Sign In</button>
 		</form>
 	</div>
 	<div class="overlay-container">
@@ -43,4 +43,8 @@
 		</div>
 	</div>
 </div>
+
+{{#if error}}
+    <p class="alert alert-warning">{{error}}</p>
+{{/if}}
 
