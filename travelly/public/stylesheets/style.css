@@ -103,13 +103,14 @@ h3 {
 
 .countries {
   color: #E1ECF7;
+  font-weight: bolder;
   text-decoration: none;
 }
 
 #europe {
   background: url('/images/europe.jpg') center no-repeat;
   background-size: 150px;
-  width: 55px;
+  width: 45px;
   border-radius: 50%;
   padding: 20px;
   margin-right: 40px;
@@ -120,7 +121,7 @@ h3 {
 #asia {
   background: url('/images/asia.jpg') center no-repeat;
   background-size: 150px;
-  width: 55px;
+  width: 45px;
   border-radius: 50%;
   padding: 20px;
   margin-right: 40px;
@@ -130,7 +131,7 @@ h3 {
 #africa {
   background: url('/images/africa.jpg') center no-repeat;
   background-size: 150px;
-  width: 55px;
+  width: 45px;
   border-radius: 50%;
   padding: 20px;
   margin-bottom: 40px;
@@ -139,7 +140,7 @@ h3 {
 #namerica {
   background: url('/images/north-america.jpg') center no-repeat;
   background-size: 150px;
-  width: 55px;
+  width: 45px;
   border-radius: 50%;
   padding: 20px;
   margin-right: 40px;
@@ -147,7 +148,7 @@ h3 {
 #samerica {
   background: url('/images/south-america.jpg') center no-repeat;
   background-size: 150px;
-  width: 55px;
+  width: 45px;
   border-radius: 50%;
   padding: 20px;
   margin-right: 40px;
@@ -155,7 +156,7 @@ h3 {
 #australia {
   background: url('/images/australia.jpg') center no-repeat;
   background-size: 150px;
-  width: 55px;
+  width: 45px;
   border-radius: 50%;
   padding: 20px;
   margin-right: 40px;
