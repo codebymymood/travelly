@@ -5,4 +5,5 @@ router.get("/auth", (req, res, next) => {
   res.render("../views/profile/auth.hbs");
 });
 
+
 module.exports = router;
