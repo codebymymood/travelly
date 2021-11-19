@@ -1,10 +1,12 @@
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px 'Montserrat', sans-serif;
   background-color: #E1ECF7;
 }
 
-a {
-  color: #00b7ff;
+p {
+  color: black;
+  font-weight: bolder;
+  font-size: 12px;
 }
 
 h1 {
@@ -13,4 +15,152 @@ h1 {
 
 footer{
   margin-bottom: 0px;
+}
+
+h3 {
+  display: flex;
+  justify-content: center;
+  color: #E1ECF7
+}
+.logo-div{
+  display: flex;
+  justify-content: center;
+  margin-top: -20px;
+  margin-bottom: 40px;
+}
+
+#logo {
+  width: 150px;
+  margin-bottom: -50px;
+  
+}
+.catch-phrase {
+  background-color: #E1ECF7;
+  margin-bottom: -50px;
+}
+.main-header {
+  background: url('/images/background-image.jpg') center no-repeat ;
+  background-size: 850px;
+  /* opacity: 0.95; */
+  height: 300px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+}
+
+.features {
+  width: 120px;
+  height: 60px;
+  background-color: #E1ECF7;
+  opacity: 0.55;
+  border-radius: 5px;
+  padding: 10px;
+  display: flex;
+  align-content: column;
+  
+
+}
+.icon {
+  padding-right: 10px;
+}
+.start-button {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  
+}
+
+.start-planning-button {
+  background-color: #023047;  
+  border-style: none;
+  border-radius: 20px;
+  box-shadow: 0 9px #999;
+  
+  padding-top: 10px;
+  padding-bottom: 10px;
+  
+}
+
+.break-line {
+  width: 50%;
+  margin-bottom: 20px;
+}
+
+
+.start-planning-button > a {
+  text-decoration: none;
+  margin: 20px;
+  color: #E1ECF7;
+}
+.location-ball {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+   
+}
+
+.countries {
+  color: #E1ECF7;
+  font-weight: bolder;
+  text-decoration: none;
+}
+
+#europe {
+  background: url('/images/europe.jpg') center no-repeat;
+  background-size: 150px;
+  width: 45px;
+  border-radius: 50%;
+  padding: 20px;
+  margin-right: 40px;
+  margin-bottom: 40px;
+}
+
+
+#asia {
+  background: url('/images/asia.jpg') center no-repeat;
+  background-size: 150px;
+  width: 45px;
+  border-radius: 50%;
+  padding: 20px;
+  margin-right: 40px;
+  margin-bottom: 40px;
+}
+
+#africa {
+  background: url('/images/africa.jpg') center no-repeat;
+  background-size: 150px;
+  width: 45px;
+  border-radius: 50%;
+  padding: 20px;
+  margin-bottom: 40px;
+  
+}
+#namerica {
+  background: url('/images/north-america.jpg') center no-repeat;
+  background-size: 150px;
+  width: 45px;
+  border-radius: 50%;
+  padding: 20px;
+  margin-right: 40px;
+}
+#samerica {
+  background: url('/images/south-america.jpg') center no-repeat;
+  background-size: 150px;
+  width: 45px;
+  border-radius: 50%;
+  padding: 20px;
+  margin-right: 40px;
+}
+#australia {
+  background: url('/images/australia.jpg') center no-repeat;
+  background-size: 150px;
+  width: 45px;
+  border-radius: 50%;
+  padding: 20px;
+  margin-right: 40px;
 }
