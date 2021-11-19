@@ -1,6 +1,7 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  /* padding: 50px; */
+  font-family: 'Montserrat', sans-serif;
+  background-color: #E1ECF7;
 }
 
 a {
@@ -9,4 +10,12 @@ a {
 
 h1 {
   color: 15px;
+}
+
+#logo {
+  width: 150px;
+}
+.main-header {
+  background: url('/images/background-image.jpg') center no-repeat;
+  height: 25%;
 }
