@@ -145,6 +145,7 @@ h3 {
   margin: 20px;
   color: #E1ECF7;
   font-size: 20px;
+  font-weight: bolder;
 }
 
 .location-ball {
@@ -166,7 +167,7 @@ h3 {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  
+  text-align: center;
 }
 
 #europe {
