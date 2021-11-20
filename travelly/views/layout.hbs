@@ -14,7 +14,28 @@
    </head>
 
    <body>
-      
+      <nav>
+         <img class ='nav-logo'src='/images/logoario.png'>
+         <div class = 'nav-icons'>
+            <a href='/mytrips'><img class='nav-icon'src='/images/globe-icon.svg'></a>
+            <a href = '/mytrips/:destination'> <img class='nav-icon' src='/images/planner-icon.svg'></a>
+            <a href = '/mytrips/:destination/:map'><img class='nav-icon' src='/images/location-icon.svg'></a>
+            <a href = '/flightsearch'><img class='nav-icon' src='/images/skyscanner-icon.svg'></a>
+               <div class="dropdown">
+                  {{!-- <button class="">Dropdown</button> --}}
+                  <img class='nav-icon dropbtn' src='/images/profile-icon.svg'>
+                  <div class="dropdown-content">
+                     <a href="#">My Trips</a>
+                     <a href="#">Edit Profile</a>
+                     <a href="#">Logout</a>
+                  </div>
+               </div>
+            
+            
+         </div>
+      </nav>
+
+
       {{{body}}}
 
       <footer >

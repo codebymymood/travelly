@@ -44,31 +44,31 @@ h3 {
   background-color: #E1ECF7;
   margin-bottom: -80px;
   font-weight: bolder;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  
 }
 .main-header {
   background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url('/images/background-image.jpg');
   background-size: cover;
   /* opacity: 0.95; */
-  height: 300px;
+  height: 350px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
 
 }
+
 
 .features {
   width: 130px;
   height: auto;
   background-color: #E1ECF7;
-  opacity: 0.55;
+  opacity: 0.70;
   border-radius: 5px;
   padding: 10px;
   display: flex;
   align-content: column;
   box-shadow: -3px 8px #999;
+  margin-right: 5%;
 }
 
 .icon {
@@ -258,9 +258,62 @@ footer {
   flex-direction: row;
   justify-content: space-around;
   padding-top: 20px;
-  position:absolute;
+  position:fixed;
 }
 .creators {
   color: #E1ECF7;
   
 }
+/*------------NAVBAR--------------*/
+
+nav {
+  background-color: #9aacb5;
+  display: flex;
+  flex-direction: row;
+}
+
+.nav-logo {
+  width: 200px;
+  margin-left: 5%;
+  margin-bottom: -10px;
+}
+.nav-icon {
+  width: 40px;
+  margin-right: 20px;
+   
+}
+.nav-icons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  font-weight: bold;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #E1ECF7
+  ;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #E1ECF7
+  ;}
