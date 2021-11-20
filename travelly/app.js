@@ -24,6 +24,24 @@ const capitalized = (string) => string[0].toUpperCase() + string.slice(1).toLowe
 
 app.locals.title = `${capitalized(projectName)} created with IronLauncher`;
 
+const session = require('express-session');
+const MongoStore = require('connect-mongo');
+
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false, 
+    cookie: {
+      maxAge: 1000 * 24* 60 * 60 // your cookie will be cleared after these seconds
+    },
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGODB_URI || "mongodb://localhost/travelly",
+      // Time to Live for sessions in DB. After that time it will delete it!
+      ttl: 24* 60 * 60 // your session will be cleared after these seconds
+    })
+  }));
+
+
 // 👇 Start handling routes here
 const index = require("./routes/index.routes");
 app.use("/", index);

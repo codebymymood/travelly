@@ -1,6 +1,5 @@
 body {
-  /* padding: 50px; */
-  font-family: 'Montserrat', sans-serif;
+  font: 14px 'Montserrat', sans-serif;
   background-color: #E1ECF7;
 }
 
@@ -12,6 +11,16 @@ p {
 
 h1 {
   color: 15px;
+}
+
+footer{
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+}
+
+nav{
+  top:0;
 }
 
 h3 {
@@ -28,16 +37,20 @@ h3 {
 
 #logo {
   width: 150px;
-  margin-bottom: -50px;
+  margin-bottom: -30px;
   
 }
 .catch-phrase {
   background-color: #E1ECF7;
-  margin-bottom: -50px;
+  margin-bottom: -80px;
+  font-weight: bolder;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .main-header {
   background: url('/images/background-image.jpg') center no-repeat ;
-  background-size: 850px;
+  background-size: cover;
   /* opacity: 0.95; */
   height: 300px;
   display: flex;
@@ -81,8 +94,10 @@ h3 {
 }
 
 .break-line {
-  width: 50%;
-  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
 }
 
 
