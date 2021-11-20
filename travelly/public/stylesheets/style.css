@@ -14,7 +14,13 @@ h1 {
 }
 
 footer{
-  margin-bottom: 0px;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+}
+
+nav{
+  top:0;
 }
 
 h3 {
