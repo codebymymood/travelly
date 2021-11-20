@@ -49,7 +49,7 @@ h3 {
   justify-content: center;
 }
 .main-header {
-  background: url('/images/background-image.jpg') center no-repeat ;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url('/images/background-image.jpg');
   background-size: cover;
   /* opacity: 0.95; */
   height: 300px;
@@ -60,17 +60,16 @@ h3 {
 }
 
 .features {
-  width: 120px;
-  height: 60px;
+  width: 130px;
+  height: auto;
   background-color: #E1ECF7;
   opacity: 0.55;
   border-radius: 5px;
   padding: 10px;
   display: flex;
   align-content: column;
-  
-
 }
+
 .icon {
   padding-right: 10px;
 }
@@ -85,9 +84,8 @@ h3 {
 .start-planning-button {
   background-color: #023047;  
   border-style: none;
-  border-radius: 20px;
+  border-radius: 10px;
   box-shadow: 0 9px #999;
-  
   padding-top: 10px;
   padding-bottom: 10px;
   
@@ -97,7 +95,7 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: center;
-  
+  /* width: 300px; */
 }
 
 
@@ -105,7 +103,9 @@ h3 {
   text-decoration: none;
   margin: 20px;
   color: #E1ECF7;
+  font-size: 20px;
 }
+
 .location-ball {
   display: flex;
   flex-direction: row;
@@ -113,66 +113,94 @@ h3 {
   justify-content: center;
   align-items: center;
   align-content: center;
-   
+  margin-bottom: 50px;
 }
 
 .countries {
   color: #E1ECF7;
   font-weight: bolder;
   text-decoration: none;
+  width: 45px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
 }
 
 #europe {
   background: url('/images/europe.jpg') center no-repeat;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url('/images/europe.jpg');
   background-size: 150px;
-  width: 45px;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  overflow: hidden;
   border-radius: 50%;
-  padding: 20px;
   margin-right: 40px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 
 #asia {
-  background: url('/images/asia.jpg') center no-repeat;
+  /* background: url('/images/asia.jpg') center no-repeat; */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url('/images/asia.jpg');
   background-size: 150px;
-  width: 45px;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  overflow: hidden;
   border-radius: 50%;
-  padding: 20px;
   margin-right: 40px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 #africa {
-  background: url('/images/africa.jpg') center no-repeat;
+  /* background: url('/images/africa.jpg') center no-repeat; */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url('/images/africa.jpg');
   background-size: 150px;
-  width: 45px;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  overflow: hidden;
   border-radius: 50%;
-  padding: 20px;
-  margin-bottom: 40px;
+  margin-right: 40px;
+  margin-bottom: 30px;
   
 }
 #namerica {
-  background: url('/images/north-america.jpg') center no-repeat;
+  /* background: url('/images/north-america.jpg') center no-repeat; */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url('/images/north-america.jpg');
   background-size: 150px;
-  width: 45px;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  overflow: hidden;
   border-radius: 50%;
-  padding: 20px;
   margin-right: 40px;
+  margin-bottom: 30px;
 }
 #samerica {
-  background: url('/images/south-america.jpg') center no-repeat;
+  /* background: url('/images/south-america.jpg') center no-repeat; */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url('/images/south-america.jpg');
   background-size: 150px;
-  width: 45px;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  overflow: hidden;
   border-radius: 50%;
-  padding: 20px;
   margin-right: 40px;
+  margin-bottom: 30px;
 }
 #australia {
-  background: url('/images/australia.jpg') center no-repeat;
+  /* background: url('/images/australia.jpg') center no-repeat; */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url('/images/australia.jpg');
   background-size: 150px;
-  width: 45px;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  overflow: hidden;
   border-radius: 50%;
-  padding: 20px;
   margin-right: 40px;
+  margin-bottom: 30px;
 }
