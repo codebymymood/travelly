@@ -72,7 +72,7 @@ h4{
   display: flex;
   align-content: column;
   box-shadow: -3px 8px #999;
-  margin-right: 5%;
+  margin: 0 2.5%;
 }
 
 .icon {
@@ -284,12 +284,14 @@ nav {
 .nav-icon {
   width: 40px;
   margin-right: 20px;
+
    
 }
 .nav-icons {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  width: 100%;
 }
 
 .dropdown {
