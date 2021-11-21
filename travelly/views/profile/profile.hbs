@@ -1,4 +1,52 @@
+<div class= 'page-salutation'>
+  <h2>Hey, {{name}}.</h2>
+  <br>
+  <h4>Here you can check your current trip plans and browse your trips history.</h4>
+</div>
 
+<div>
+   <p>div to show a trip already being planned?</p>
+</div>
+{{!-- <div >
+  <img class='add-button' src = '/images/add-icon.svg' <button class='' ></button>>
+  
+</div> --}}
+<div>
+   <p>div for trip history</p>
+   <p>Your trip history is empty. Why not start by planning a new one?</p>
+</div>
+
+
+
+<img class='add-button' src = '/images/add-icon.svg' <button class="open-button" onclick="openForm()"></button>
+
+<div class="form-popup" id="myForm">
+  <form action="/action_page.php" class="form-container">
+    <h5>My New Trip:</h5>
+
+    <label for="email"><b>Destination:</b></label>
+    <input type="text" placeholder="Enter city or country" name="destination" required>
+
+    <label for="psw"><b>Dates:</b></label>
+    <input type="date" placeholder="dates" name="calendar" required>
+
+    <button type="submit" class="btn">Add</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+  </form>
+</div>
+
+<script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
+
+
+{{!-- 
 <div>
 
 
@@ -152,7 +200,7 @@
       </div>
     </section>
 
-</div>
+</div> --}}
 
 
 
