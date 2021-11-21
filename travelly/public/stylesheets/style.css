@@ -332,26 +332,24 @@ nav {
 }
 
 .add-button{
-  width: 80px;
-  display: flex;
+  width: 100px;
+  display: flex; 
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  
+   
 }
 
 /* Button used to open the contact form - fixed at the bottom of the page */
 .open-button {
-  background-color: #555;
-  color: white;
+  
   padding: 16px 20px;
   border: none;
   cursor: pointer;
   opacity: 0.8;
-  position: fixed;
-  bottom: 23px;
-  right: 28px;
-  width: 280px;
+  /* position: absolute;
+  top:200px; 
+  left:40%; 
+  width: 80px; */
 }
 
 /* The popup form - hidden by default */
