@@ -411,3 +411,8 @@ nav {
 .form-container .btn:hover, .open-button:hover {
   opacity: 1;
 }
+
+/*-------------------SEARCH BAR ----------------------*/
+.input-group {
+  width: 40%;
+}

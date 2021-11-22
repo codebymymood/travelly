@@ -1,4 +1,4 @@
-/* #index.hbs, .nav-bar {
+#index.hbs, .nav-bar {
     display: none;
     visibility: hidden;
 }
@@ -6,6 +6,6 @@
 #auth.hbs,  .nav-bar {
     display: none;
     visibility: hidden;
-} */
+}
 
 

@@ -3,22 +3,22 @@
 <h4>Where are we flying today?</h4>
 
 <div>
-  <div>
-    <a href="/mytrips/{{city1.name}}/{{city1.lat}}/{{city1.long}}">{{city1.name}}</a>
-  </div>
 
-   <div>
-    <a href="/mytrips/{{city2.name}}/{{city2.lat}}/{{city2.long}}">{{city2.name}}</a>
-  </div>
-
-   <div>
-    <a href="/mytrips/{{city3.name}}/{{city3.lat}}/{{city3.long}}">{{city3.name}}</a>
-  </div>
+  {{#each nameResults}}
+    <div>
+      <a href="/mytrips/{{this.name}}/{{this.lat}}/{{this.long}}">{{this.name}}</a>
+    </div>
+  {{/each}}
 
 </div>
  
 
 <form class="example" method='POST' action="/mytrips">
-  <input type="text" name = 'city' placeholder="Search.." name="search">
-  <button type="submit"><i class="fa fa-search"></i></button>
+  <div class="input-group rounded">
+    <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+    aria-describedby="search-addon" />
+    <span class="input-group-text border-0" id="search-addon">
+      <i class="fas fa-search"></i>
+    </span>
+</div>
 </form>
