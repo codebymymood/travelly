@@ -8,11 +8,17 @@ router.get("/mytrips", (req, res, next) => {
   });
   
 router.post("/mytrips", (req, res, next) => {
- const city = req.body.city
- console.log(city)
-    axios.get(`https://api.opentripmap.com/0.1/en/places/geoname?name=${city}}&apikey=5ae2e3f221c38a28845f05b663d6442a707b83ae2816fa50a8844e82`)
+ const country = req.body.city
+
+var config = {
+  method: 'get',
+  url: 'https://countriesnow.space/api/v0.1/countries/states',
+  headers: { }
+};
+
+  axios(config)
       .then((response) => { 
-          let joana = response.data.name
+          let joana = response.data.data
           res.render('../views/trips/mytrips.hbs' , {joana})
       })
       .catch((err) => {
@@ -20,6 +26,9 @@ router.post("/mytrips", (req, res, next) => {
       })
 
 });
+
+
+
 
 
 

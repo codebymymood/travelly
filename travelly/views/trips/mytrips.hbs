@@ -1,8 +1,16 @@
 <p>Teste</p>
+<p>
+{{#each joana}}
+  <li>Country: {{this.name}}</li>
+    <ul>
+      <li>City: </li>
+      <ul>
+      {{#each this.states}}
+         <li>{{this.name}}</li>
+      {{/each}}
+      </ul>
+    </ul>
+{{/each}}
+</p>
 
- <p>{{joana}}</p>
 
-<form class="example" method='POST' action="/mytrips">
-  <input type="text" name = 'city' placeholder="Search.." name="search">
-  <button type="submit"><i class="fa fa-search"></i></button>
-</form>
