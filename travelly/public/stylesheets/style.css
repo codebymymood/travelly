@@ -49,6 +49,10 @@ nav{
   height: 200px;
   width: 250px;
 }
+
+.card{
+  height: 100px;
+}
 /* h3 {
   display: flex;
   justify-content: center;
