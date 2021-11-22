@@ -4,10 +4,10 @@ const axios = require('axios')
 const OPENTRIP_KEY = process.env.API_KEY
 
 router.get("/mytrips", (req, res, next) => {
-    res.render('../views/trips/mytrips.hbs');
+    res.render('../views/trips/mytrips.hbs' , {layout:'logged-in-layout.hbs'});
   });
   
-router.post("/mytrips", (req, res, next) => {
+/* router.post("/mytrips", (req, res, next) => {
  const country = req.body.city
 
 var config = {
@@ -25,7 +25,7 @@ var config = {
           next(err)
       })
 
-});
+}); */
 
 
 
