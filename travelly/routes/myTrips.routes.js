@@ -1,20 +1,13 @@
 const router = require("express").Router();
 const axios = require('axios')
+const CitiesModel = require('../models/Cities.model')
 
 const OPENTRIP_KEY = process.env.API_KEY
 
-
-
-let cities = [
-  { name: "BRazil", lat: 123, lon: 456 },
-  { name: "USA", lat: 123, lon: 456 },
-  { name: "Cuba", lat: 123, lon: 456 },  
-];
-
 router.get("/mytrips", (req, res, next) => {
-  let city1 = cities[Math.floor(Math.random()*cities.length)]
-  let city2 = cities[Math.floor(Math.random()*cities.length)]
-  let city3 = cities[Math.floor(Math.random()*cities.length)]
+  let city1 = CitiesModel[Math.floor(Math.random()*CitiesModel.length)]
+  let city2 = CitiesModel[Math.floor(Math.random()*CitiesModel.length)]
+  let city3 = CitiesModel[Math.floor(Math.random()*CitiesModel.length)]
   
   res.render('../views/trips/mytrips.hbs', {city1, city2, city3} );
 });
@@ -31,8 +24,8 @@ router.post("/mytrips", (req, res, next) => {
           
           let city1 = { name: joana, lat: lat, long: long};   
 
-          let city2 = cities[Math.floor(Math.random()*cities.length)]
-          let city3 = cities[Math.floor(Math.random()*cities.length)]
+          let city2 = CitiesModel[Math.floor(Math.random()*CitiesModel.length)]
+          let city3 = CitiesModel[Math.floor(Math.random()*CitiesModel.length)]
           
           res.render('../views/trips/mytrips.hbs' , {city1, city2, city3})
       })

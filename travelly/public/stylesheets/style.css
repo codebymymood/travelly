@@ -269,7 +269,6 @@ footer {
   
 }
 /*------------NAVBAR--------------*/
-
 nav {
   background-color: #9aacb5;
   display: flex;
@@ -323,6 +322,8 @@ nav {
 
 .dropdown:hover .dropbtn {background-color: #E1ECF7
   ;}
+
+
 
 /*-----------PAGES------------*/
 .page-salutation {
