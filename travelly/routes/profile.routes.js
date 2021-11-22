@@ -23,14 +23,24 @@ router.post('/profile', (req, res, next) => {
 
 })
 
-router.get('/profile/edit', (req, res, next) => {
-    res.render('../views/profile/edit-profile.hbs', {layout: 'logged-in-layout.hbs'})
+router.get('/profile/edit',  (req, res, next) => {
+
+    UserModel.findById(req.session.myProperty._id)
+    .then((result)=> {
+    console.log(result.image)
+        res.render('../views/profile/edit-profile.hbs', {layout: 'logged-in-layout.hbs', image: result.image})
+    })
+    .catch((err) => {
+        next(err)
+    })
+
+
 })
 
 router.post('/profile/edit/upload', uploader.single("imageUrl"), (req, res, next) => {
-    console.log('file is: ', req.file)
+    console.log(req.file.path)
 
-    UserModel.findByIdAndUpdate(req.session.myProperty._id, {profilePic: req.file.path})
+    UserModel.findByIdAndUpdate(req.session.myProperty._id, {image: req.file.path })
     .then(()=> {
 
         res.redirect('/profile');
@@ -40,7 +50,5 @@ router.post('/profile/edit/upload', uploader.single("imageUrl"), (req, res, next
     })
 
 })
-
-
 
 module.exports = router;

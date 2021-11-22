@@ -15,6 +15,9 @@ const userSchema = new Schema ({
          type: String, 
          required: true,
          maxlength: 20
+       },
+       image: {
+         type: String
        }
 })
 
