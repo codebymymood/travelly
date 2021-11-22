@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const axios = require('axios')
 const CitiesModel = require('../models/Cities.model')
+const ReminderModel = require('../models/Reminder.model')
 
 const OPENTRIP_KEY = process.env.API_KEY
 
@@ -20,7 +21,7 @@ router.get("/mytrips", (req, res, next) => {
          nameResults.push(result[i])
         }
 
-        res.render('../views/trips/mytrips.hbs', {nameResults});
+        res.render('../views/trips/mytrips.hbs',{layout:'logged-in-layout.hbs', nameResults});
       })
       .catch((err) => {
         next(err)
@@ -62,7 +63,7 @@ router.get('/mytrips/:name/:lat/:long', (req, res, next) => {
     for (let i = 0; i < 19; i++) {
       attractArr.push(attractionName[i].properties.name)
     }
-    
+   
     res.render('../views/trips/destinations.hbs', {attractArr})
   })
   .catch((err) => {
@@ -70,13 +71,5 @@ router.get('/mytrips/:name/:lat/:long', (req, res, next) => {
   })
 
 })
-
-
-
-
-
-
-
-  
 
 module.exports = router;
