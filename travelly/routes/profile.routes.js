@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const UserModel = require('../models/User.model')
 const FavTrips = require("../models/favTrips.model");
+const uploader = require('../middlewares/cloudinary.config.js');
 require('../routes/auth.routes')
 
 router.get('/profile', (req, res, next) => {
@@ -26,8 +27,19 @@ router.get('/profile/edit', (req, res, next) => {
     res.render('../views/profile/edit-profile.hbs', {layout: 'logged-in-layout.hbs'})
 })
 
+router.post('/profile/edit/upload', uploader.single("imageUrl"), (req, res, next) => {
+    console.log('file is: ', req.file)
 
+    UserModel.findByIdAndUpdate(req.session.myProperty._id, {profilePic: req.file.path})
+    .then(()=> {
 
+        res.redirect('/profile');
+    })
+    .catch((err) => {
+        next(err)
+    })
+
+})
 
 
 

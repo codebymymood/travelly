@@ -32,6 +32,10 @@
 
 <div >
     <label >Profile Photo:</label>
+    <img class=“profilePic” src={{profilePic}} alt=“profile pic” />
                 
-    <input id="image" type="file" name="profile_photo" placeholder="Photo" required="" capture>
+    <form method="POST" action="/profile/edit/upload" enctype="multipart/form-data">
+    <input type="file" name="imageUrl" accept="image/png, image/jpg">
+    <button type="submit">Upload</button> 
+</form>  
 </div>

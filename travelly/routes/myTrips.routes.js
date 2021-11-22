@@ -12,8 +12,6 @@ router.get("/mytrips", (req, res, next) => {
   let city3 = cities[Math.floor(Math.random()*cities.length)]
 
 
-  console.log(cities)
-
       CitiesModel.find()
       .then((result) => {
         let nameResults = []
@@ -52,7 +50,42 @@ router.post("/mytrips", (req, res, next) => {
           next(err)
       })
 
-});
+}); 
+
+router.get('/mytrips/:name/:lat/:long', async (req, res, next) => {
+  const {name, lat, long} = req.params;
+
+    try {
+      let destination = await CitiesModel.find({name, lat, long})
+
+      res.render('../views/trips/destinations.hbs')
+
+    }
+    catch(err) {
+      next(err)
+    }
+
+})
+
+router.post('/mytrips/:name/:lat/:long', (req, res, next) => {
+  const lat = req.body.lat;
+  const long = req.body.long
+
+  axios.get(`https://api.opentripmap.com/0.1/en/places/radius?lat=${lat}&lon=${long}&radius=5000&apikey=5ae2e3f221c38a28845f05b663d6442a707b83ae2816fa50a8844e82`)
+  .then((response) => {
+    let attractionName = response.data.properties
+    console.log(attractionName)
+    res.render('../views/trips/destinations.hbs', {attractionName})
+  })
+  .catch((err) => {
+    next(err)
+  })
+
+})
+
+
+
+
 
   
 
