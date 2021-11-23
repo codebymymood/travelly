@@ -2,12 +2,153 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col col-md-8 text-center">
-        <h1> Hey, {{name}}.</h1> 
-        <h1>Welcome to your trip plan.</h1>
+        <h1>Pick your must-go activities and add some reminders</h1>
       </div>
     </div>
   </div>
 </section>
+
+<section class="pt-5 pb-5">
+<div class="container">
+  <div class="d-flex justify-content-between" >
+    <div class="row">
+      <h3 class="destination-activities"><span class="destination-h3">Porto</span> from 03/03 until 06/06</h3>
+      <div class="col col-md-6 text-center">
+        <div class="list-group-activities">            
+            <a href="#" class="list-group-item list-group-item-action">+</a>
+            <a href="#" class="list-group-item list-group-item-action">+</a>
+            <a href="#" class="list-group-item list-group-item-action">+</a>
+            <a href="#" class="list-group-item list-group-item-action">+</a>
+            <a href="#" class="list-group-item list-group-item-action">+</a>
+            <a href="#" class="list-group-item list-group-item-action">+</a>
+            <a href="#" class="list-group-item list-group-item-action disabled">+</a>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+    <h3 class='reminder-title'>Don't forget</h3>
+      <div class="col col-md-6 text-center">
+        <div class="list-group-reminder">
+         <a href="#" class="list-group-item list-group-item-action">+</a>
+         <a href="#" class="list-group-item list-group-item-action">+</a>
+         <a href="#" class="list-group-item list-group-item-action">+</a>
+         <a href="#" class="list-group-item list-group-item-action">+</a>
+         <a href="#" class="list-group-item list-group-item-action">+</a>
+         <a href="#" class="list-group-item list-group-item-action">+</a>
+         <a href="#" class="list-group-item list-group-item-action disabled">+</a>
+        </div>
+      </div>
+    </div>
+  </div>
+        </div>
+</section>
+
+<section class="pt-5 pb-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-6">
+            <h3 class="mb-3">Top activites from Porto : </h3>
+          </div>
+          <div class="col-6 text-md-end">
+            <a class="btn btn-primary mb-3 me-1"
+              href="#carouselExampleIndicators2" role="button"
+              data-slide="prev">
+              <i class="fa fa-arrow-left"></i>
+            </a>
+            <a class="btn btn-primary mb-3 " href="#carouselExampleIndicators2"
+              role="button" data-slide="next">
+              <i class="fa fa-arrow-right"></i>
+            </a>
+          </div>
+          <div class="col-12">
+            <div id="carouselExampleIndicators2" class="carousel slide"
+              data-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item">
+                  <div class="row">
+                    <div class="col-md-4 mb-3">
+                      <div class="card">                        
+                        <div class="card-body">
+                          <h4 class="card-title">Special title treatment</h4>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                      <div class="card">
+                         <div class="card-body">
+                          <h4 class="card-title">Special title treatment</h4>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                     <div class="card">
+                         <div class="card-body">
+                          <h4 class="card-title">Special title treatment</h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item active">
+                  <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <div class="card">
+                          <div class="card">
+                         <div class="card-body">
+                          <h4 class="card-title">Special title treatment</h4>
+                        </div>
+                      </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                      <div class="card">
+                        <div class="card-body">
+                          <h4 class="card-title">Special title treatment</h4>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                      <div class="card">
+                        <div class="card-body">
+                          <h4 class="card-title">Special title treatment</h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="row">
+                    <div class="col-md-4 mb-3">
+                      <div class="card">
+                       <div class="card-body">
+                          <h4 class="card-title">Special title treatment</h4>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                      <div class="card">
+                       <div class="card-body">
+                          <h4 class="card-title">Special title treatment</h4>
+                         </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                      <div class="card">
+                        <div class="card-body">
+                          <h4 class="card-title">Special title treatment</h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
 
 <div>
 
@@ -19,7 +160,7 @@
 
 </div>
 
-  <div class='add-button'>  
+{{!--   <div class='add-button'>  
     <img  src = '/images/add-icon.svg' <button class="open-button" onclick="openForm()"></button>
   </div>
     <div class="form-popup" id="myForm">
@@ -51,5 +192,13 @@ function closeForm() {
 }
 </script>
 
-
-
+<form method="POST" action="/mytrips">
+  <div class="mb-3">
+    <h6>Don't forget to:</h6>
+    <label>Description</label>
+    <input value="{{todo.description}}" type="text" name="description">
+    <br>
+    <button type="submit">ADD</button>
+  </div>
+</form>
+ --}}

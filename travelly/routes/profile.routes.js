@@ -6,7 +6,7 @@ require('../routes/auth.routes')
 
 router.get('/profile', (req, res, next) => {
     let userInfo = req.session.myProperty
-    res.render('../views/profile/profile.hbs', {name: userInfo.name} )
+    res.render('../views/profile/profile.hbs', {layout:'logged-in-layout.hbs', name: userInfo.name} )
 })
 
 router.post('/profile', (req, res, next) => {

@@ -24,7 +24,8 @@ CitiesModel.insertMany([
     {name: 'Toronto', lat:43.70011 , long:-79.4163},
     {name: 'Tokyo', lat: 35.6895, long:139.69171},
     {name: 'Sidney', lat:-33.86785 , long:151.20732},
-    {name: 'Pune', lat:18.74673 , long:73.75465}
+    {name: 'Pune', lat:18.74673 , long:73.75465},
+    {name: 'Antonio', lat:18.74673 , long:73.75465}
 
 ])
     .then(() => {

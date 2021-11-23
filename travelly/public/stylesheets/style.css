@@ -11,7 +11,6 @@ p {
 }
 
 h1, h2, h3, h4, h5, span {
-  color: 15px;
   font-weight: bolder;
 }
 
@@ -21,33 +20,14 @@ footer{
   width: 100%;
 }
 
-
-h3 {
-  display: flex;
-  justify-content: center;
-  color: #E1ECF7
-}
-h4{
-  color: #023047;
-  font-weight: bold;
-}
-.logo-div{
-  display: flex;
-  justify-content: center;
-  margin-top: -20px;
-  margin-bottom: 40px;
+nav{
+  position: fixed;
+  top: 0px;
+  width: 100%;
 }
 
-#logo {
-  width: 150px;
-  margin-bottom: -30px;
-  
-}
-.catch-phrase {
-  background-color: #E1ECF7;
-  margin-bottom: -80px;
-  font-weight: bolder;
-  
+a{
+  color: #E1ECF7;
 }
 .main-header {
   background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url('/images/background-image.jpg');
@@ -57,98 +37,13 @@ h4{
   display: flex;
   justify-content: center;
   align-items: center;
+}
 
-  .features {
-    width: 130px;
-    height: auto;
-    background-color: #E1ECF7;
-    opacity: 0.70;
-    border-radius: 5px;
-    padding: 10px;
-    display: flex;
-    align-content: column;
-    box-shadow: -3px 8px #999;
-    margin: 0 2.5%;
-  }
   
   .icon {
     padding-right: 10px;
   }
-  /* .start-button {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    
-  }
-  
-  .start-planning-button {
-    background-color: #023047;  
-    border-style: none;
-    border-radius: 10px;
-    box-shadow: 0 5px #999;
-    padding: 10px 15px;
-    text-decoration: none;
-    
-  }
-  
-   .start-planning-button {
-    color: #FFF;
-    transition: all 0.5s;
-    position: relative;
-  }
-  
-  .start-planning-button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    background-color: rgba(255,255,255,0.1);
-    transition: all 0.3s;
-  }
-  
-  .start-planning-button:hover::before {
-    opacity: 0 ;
-    transform: scale(0.5,0.5);
-  }
-  .start-planning-button::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    opacity: 0;
-    transition: all 0.3s;
-    border: 1px solid rgba(255,255,255,0.5);
-    transform: scale(1.2,1.2);
-  }
-  .start-planning-button:hover::after {
-    opacity: 1;
-    transform: scale(1,1);
-  } 
-  
-  .break-line {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* width: 300px; */
-  
-  
-  
-  /* .start-planning-button > a {
-    text-decoration: none;
-    margin: 20px;
-    color: #E1ECF7;
-    font-size: 20px;
-    font-weight: bolder;
-  }
-  
-  .location-ball { */ 
+
 
 .py-5 {
   padding-top: 0!important; 
@@ -172,12 +67,149 @@ h4{
   height: 200px;
   width: 250px;
 }
-/* h3 {
+
+.logo-div{
   display: flex;
+  justify-content: center;
+  margin-top: -10px;
+  margin-bottom: 20px;
+}
+
+#logo {
+  width: 150px;
+  margin-bottom: -30px;
+  
+}
+.catch-phrase {
+  color: #E1ECF7;
+  font-weight: bolder;
+  font-size: 60px;
+  text-shadow: 2px 2px 2px #999;
+  
+}
+.main-header {  
+  background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)), url('/images/background-image.png');
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: row;
+}
+
+#mapid {
+  padding: 300px 1300px 250px 0px;
+
+  margin: auto;
+}
+
+.features{
+  display:flex;
+  margin-top: 80px;
+  left: 50%;
+  align-items: center;
+  justify-content: center;
+  align-content: row;
+}
+
+.feature {
+  width: 200px;
+  height: auto;
+  background-color: #E1ECF7;
+  opacity: 0.70;
+  border-radius: 5px;
+  padding: 10px;
+  display: flex;
+  align-content: column;
+  text-align: center;
+  box-shadow: -3px 3px #999;
+  margin: 0 3.5%;
+}
+
+.feature-description{
+  margin-top:5px;
+  font-size: 1em;
+  font-weight: bolder;
+}
+
+.icon {
+  padding-right: 10px;
+}
+
+.break-line{
+width: 45%;
+margin:auto !important
+}
+
+.start-button {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 35px;
+  margin-top: 35px;
+  
+}
+
+.start-planning-button {
+	color: #e1ecf7;
+	font-size: 24px;
+	border-radius: 4px;
+	background-color: #023047;
+	box-shadow: 2px 3px 2px  #9ea5ad;
+	cursor: pointer;
+	display: inline-flex;
+	align-items: center;
+  text-decoration: none;
+}
+
+.start-planning-button:hover {
+	background-color: #023f5e;
+  color: #E1ECF7;
+}
+.start-planning-button-icon {
+	padding: 10px 9px;
+	color: #e1ecf7;
+	text-shadow: none;
+}
+.start-planning-button-icon i {
+	position: relative;
+	font-size: 20px;
+	left: 8px;
+}
+.start-planning-button-text {
+	padding: 10px 18px;
+}
+
+.list-group-activities{
+  width: 800px;
+}
+.list-group-reminder{
+  margin-left: 10%;
+  width: 400px;
+}
+
+.destination-activities{
+  color: black;
+}
+.destination-h3{
+  color: #023047;
+}
+
+.reminder-title{
+  margin-left: 55%;
+}
+
+.location-ball {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   align-content: center;
-  
+  cursor: pointer;  
+  margin-top: 50px;
+  left: 50%;
+  right: 50%;
 }
 
 .countries {
@@ -209,7 +241,7 @@ h4{
 
 #asia {
   /* background: url('/images/asia.jpg') center no-repeat; */
-  /* background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url('/images/asia.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url('/images/asia.jpg');
   background-size: 150px;
   width: 100px;
   height: 100px;
@@ -220,9 +252,9 @@ h4{
   margin-bottom: 30px;
 }
 
- #africa {
+#africa {
   /* background: url('/images/africa.jpg') center no-repeat; */
-  /* background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url('/images/africa.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url('/images/africa.jpg');
   background-size: 150px;
   width: 100px;
   height: 100px;
@@ -231,11 +263,11 @@ h4{
   border-radius: 50%;
   margin-right: 40px;
   margin-bottom: 30px;
-   */
-/* } */
-/* #namerica { */
+  
+}
+#namerica {
   /* background: url('/images/north-america.jpg') center no-repeat; */
-  /* background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url('/images/north-america.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url('/images/north-america.jpg');
   background-size: 150px;
   width: 100px;
   height: 100px;
@@ -244,10 +276,10 @@ h4{
   border-radius: 50%;
   margin-right: 40px;
   margin-bottom: 30px;
-}*/ 
-/* #samerica {
+}
+#samerica {
   /* background: url('/images/south-america.jpg') center no-repeat; */
-  /* background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url('/images/south-america.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url('/images/south-america.jpg');
   background-size: 150px;
   width: 100px;
   height: 100px;
@@ -256,9 +288,9 @@ h4{
   border-radius: 50%;
   margin-right: 40px;
   margin-bottom: 30px;
-}  */ 
-/* #australia {
-  background: url('/images/australia.jpg') center no-repeat;
+}
+#australia {
+  /* background: url('/images/australia.jpg') center no-repeat; */
   background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url('/images/australia.jpg');
   background-size: 150px;
   width: 100px;
@@ -268,90 +300,4 @@ h4{
   border-radius: 50%;
   margin-right: 40px;
   margin-bottom: 30px;
-}  */
-
-
-/*-----------PAGES------------*/
-.page-salutation {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  margin-top: 2%;
-}
-
-.add-button{
-  width: 50px;
-  display: flex; 
-  align-items: center;
-  justify-content: center;
-   
-}
-
-.open-button {
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  opacity: 0.8;
-  /* position: absolute;
-  top:200px; 
-  left:40%; 
-  width: 80px; */
-}
-
-/* The popup form - hidden by default */
-.form-popup {
-  display: none;
-  position: absolute;
-  top:200px; 
-  left:40%; 
-  border: 3px solid #f1f1f1;
-  border-radius: 10px;
-  z-index: 9;
-  box-shadow: 8px 15px 25px 0px rgba(0,0,0,0.5);
-}
-
-/* Add styles to the form container */
-.form-container {
-  max-width: 300px;
-  padding: 10px;
-  background-color: white;
-  border-radius: 10px;
-}
-
-/* Full-width input fields */
-.form-container input[type=text], .form-container input[type=date] {
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  border: none;
-  background: #f1f1f1;
-}
-
-/* When the inputs get focus, do something */
-.form-container input[type=text]:focus, .form-container input[type=date]:focus {
-  background-color: #ddd;
-  outline: none;
-}
-
-/* Set a style for the submit/login button */
-.form-container .btn {
-  background-color: #023047;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  margin-bottom:10px;
-  opacity: 0.8;
-}
-
-/* Add a red background color to the cancel button */
-.form-container .cancel {
-  background-color: #ff6136;
-}
-
-/* Add some hover effects to buttons */
-.form-container .btn:hover, .open-button:hover {
-  opacity: 1;
 }
