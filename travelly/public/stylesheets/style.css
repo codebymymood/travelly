@@ -83,8 +83,10 @@ a{
   align-content: row;
 }
 
-#mapid { 
-  height: 380px; 
+#mapid {
+  padding: 300px 1300px 250px 0px;
+
+  margin: auto;
 }
 
 .features{

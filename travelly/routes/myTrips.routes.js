@@ -5,7 +5,7 @@ const OPENTRIP_KEY = process.env.API_KEY
 
 router.get("/mytrips", (req, res, next) => {
     res.render('../views/trips/mytrips.hbs' , {layout:'logged-in-layout.hbs'});
-  });
+});
 
 router.get("/mytrips/destination", (req, res, next) => {
     res.render('../views/trips/destinations.hbs' , {layout:'logged-in-layout.hbs'});

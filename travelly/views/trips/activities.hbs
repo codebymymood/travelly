@@ -1,18 +1,31 @@
-<h1>Maps</h1>
+<section class="pt-5 pb-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col col-md-8 text-center">
+        <h1>Check your past selected activities and don't get lost!</h1>
+      </div>
+    </div>
+  </div>
+</section>
 
-{{!-- create an empty div for the map to be rendered --}}
-<div id="mapid"></div>
-
-
-<script>
-    // parse the variable that you set in your routes
-    // to access any variable passed from handlebars we need to use the quotes and three curly opening/closing brackets
-    // "{{{ VARIABLE }}}"
-    let ourDataDromRoutes = {{{loc}}}
-    var map = L.map('mapid').setView(ourDataDromRoutes, 13);
-    L.tileLayer('https://api.mapbox.com/styles/v1/mariorui97/ckwbg8x4a71zq15t60aagxfgr/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWFyaW9ydWk5NyIsImEiOiJja3diZzZkdzkxYmxqMm9xbXkwYjllMWs5In0.YMoDUkIF1ygYH3YZ8E3Ptg', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
-    L.marker([51.5, -0.09]).addTo(map)
-        .bindPopup('This is my pop up<br> Easily customizable.')
-</script>
+<section class="pt-5 pb-5">
+<div class="container">
+  <div class="d-flex justify-content-between" >
+    <div class="row">
+      <div class="col col-md-6 text-center">
+        <div id="mapid">
+            <script>
+                let ourDataDromRoutes = {{{loc}}}
+                var map = L.map('mapid').setView(ourDataDromRoutes, 13);
+                L.tileLayer('https://api.mapbox.com/styles/v1/mariorui97/ckwbg8x4a71zq15t60aagxfgr/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWFyaW9ydWk5NyIsImEiOiJja3diZzZkdzkxYmxqMm9xbXkwYjllMWs5In0.YMoDUkIF1ygYH3YZ8E3Ptg', {
+                   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                }).addTo(map);
+                L.marker([51.5, -0.09]).addTo(map)
+                   .bindPopup('This is my pop up<br> Easily customizable.')
+            </script>
+        </div>
+    </div>
+  </div>
+</div>
+</div>
+</section>
