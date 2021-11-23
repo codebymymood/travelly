@@ -8,6 +8,17 @@
   </div>
 </section>
 
+
+
+
+  {{#each attractArr}} 
+    <div>
+      <p>{{this}}</p>
+    </div>
+  {{/each}}
+
+
+
 <section class="pt-5 pb-5">
 <div class="container">
   <div class="d-flex justify-content-between" >
@@ -47,7 +58,7 @@
       <div class="container">
         <div class="row">
           <div class="col-6">
-            <h3 class="mb-3">Top activites from Porto : </h3>
+            <h3 class="mb-3">Top activites from {{name}} : </h3>
           </div>
           <div class="col-6 text-md-end">
             <a class="btn btn-primary mb-3 me-1"
@@ -66,79 +77,83 @@
               <div class="carousel-inner">
                 <div class="carousel-item">
                   <div class="row">
-                    <div class="col-md-4 mb-3">
-                      <div class="card">                        
-                        <div class="card-body">
-                          <h4 class="card-title">Special title treatment</h4>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                      <div class="card">
-                         <div class="card-body">
-                          <h4 class="card-title">Special title treatment</h4>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                     <div class="card">
-                         <div class="card-body">
-                          <h4 class="card-title">Special title treatment</h4>
-                        </div>
-                      </div>
+                        {{#each attractArr0}}
+                            <div class="col-md-4 mb-3">
+                            <div class="card">                        
+                                <div class="card-body">
+                                <h4 class="card-title">{{this.name}}</h4>
+                                </div>
+                            </div>
+                            </div>
+                        {{/each}}                  
                     </div>
                   </div>
                 </div>
                 <div class="carousel-item active">
                   <div class="row">
-                    <div class="col-md-4 mb-3">
-                        <div class="card">
-                          <div class="card">
-                         <div class="card-body">
-                          <h4 class="card-title">Special title treatment</h4>
-                        </div>
-                      </div>
-                      </div>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                      <div class="card">
-                        <div class="card-body">
-                          <h4 class="card-title">Special title treatment</h4>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                      <div class="card">
-                        <div class="card-body">
-                          <h4 class="card-title">Special title treatment</h4>
-                        </div>
-                      </div>
-                    </div>
+                    {{#each attractArr1}}
+                            <div class="col-md-4 mb-3">
+                            <div class="card">                        
+                                <div class="card-body">
+                                <h4 class="card-title">{{this.properties.name}}</h4>
+                                </div>
+                            </div>
+                            </div>
+                    {{/each}}  
                   </div>
                 </div>
                 <div class="carousel-item">
                   <div class="row">
-                    <div class="col-md-4 mb-3">
-                      <div class="card">
-                       <div class="card-body">
-                          <h4 class="card-title">Special title treatment</h4>
-                        </div>
-                      </div>
+                    {{#each attractArr2}}
+                            <div class="col-md-4 mb-3">
+                            <div class="card">                        
+                                <div class="card-body">
+                                <h4 class="card-title">{{this.properties.name}}</h4>
+                                </div>
+                            </div>
+                            </div>
+                    {{/each}}        
+                 </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="row">
+                    {{#each attractArr3}}
+                            <div class="col-md-4 mb-3">
+                            <div class="card">                        
+                                <div class="card-body">
+                                <h4 class="card-title">{{this.properties.name}}</h4>
+                                </div>
+                            </div>
+                            </div>
+                    {{/each}}
+                 </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="row">
+                    {{#each attractArr4}}
+                            <div class="col-md-4 mb-3">
+                            <div class="card">                        
+                                <div class="card-body">
+                                <h4 class="card-title">{{this.properties.name}}</h4>
+                                </div>
+                            </div>
+                            </div>
+                    {{/each}}   
+                  </div>
+                </div>  
+                  <div class="carousel-item">
+                    <div class="row">
+                        {{#each attractArr5}}
+                                <div class="col-md-4 mb-3">
+                                <div class="card">                        
+                                    <div class="card-body">
+                                    <h4 class="card-title">{{this.properties.name}}</h4>
+                                    </div>
+                                </div>
+                                </div>
+                        {{/each}}   
                     </div>
-                    <div class="col-md-4 mb-3">
-                      <div class="card">
-                       <div class="card-body">
-                          <h4 class="card-title">Special title treatment</h4>
-                         </div>
-                      </div>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                      <div class="card">
-                        <div class="card-body">
-                          <h4 class="card-title">Special title treatment</h4>
-                        </div>
-                      </div>
-                    </div>
+                    </div>       
                   </div>
                 </div>
               </div>
@@ -150,15 +165,6 @@
 
 
 
-<div>
-
-  {{#each attractArr}} 
-    <div>
-      <p>{{this}}</p>
-    </div>
-  {{/each}}
-
-</div>
 
 {{!--   <div class='add-button'>  
     <img  src = '/images/add-icon.svg' <button class="open-button" onclick="openForm()"></button>

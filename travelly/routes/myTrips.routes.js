@@ -31,7 +31,7 @@ router.get("/mytrips", (req, res, next) => {
 
         }
 
-        res.render('../views/trips/mytrips.hbs',{layout:'logged-in-layout.hbs', nameResults0:nameResults.slice(0,3),nameResults2:nameResults.slice(3,6), nameResults3:nameResults.slice(6,9), nameResults4:nameResults.slice(9,12), nameResults5:nameResults.slice(12,15), nameResults6:nameResults.slice(15,18), nameResults7:nameResults.slice(18,21),});
+        res.render('../views/trips/mytrips.hbs',{layout:'logged-in-layout.hbs', nameResults0:nameResults.slice(0,3), nameResults2:nameResults.slice(3,6), nameResults3:nameResults.slice(6,9), nameResults4:nameResults.slice(9,12), nameResults5:nameResults.slice(12,15), nameResults6:nameResults.slice(15,18), nameResults7:nameResults.slice(18,21)});
       })
       .catch((err) => {
         next(err)
@@ -68,11 +68,20 @@ router.get('/mytrips/:name/:lat/:long', (req, res, next) => { ///mytrips/:name/:
   .then((response) => {
     let attractionName = response.data.features
     let attractArr = []
-    for (let i = 0; i < 19; i++) {
+    let attractArr0 = []
+    let attractArr1 = []
+    let attractArr2 = []
+    let attractArr3 = []
+    let attractArr4 = []
+    let attractArr5 = []
+    let attractArr6 = []
+    console.log(attractArr)
+
+    for (let i = 0; i < 20; i++) {
       attractArr.push(attractionName[i].properties.name)
     }
    
-    res.render('../views/trips/destinations.hbs', {layout:'logged-in-layout.hbs', attractArr})
+    res.render('../views/trips/destinations.hbs', {layout:'logged-in-layout.hbs', attractArr0:attractArr.slice(0,3), attractArr1:attractArr.slice(3,6), attractArr2:attractArr.slice(6,9), attractArr3:attractArr.slice(9,12), attractArr4:attractArr.slice(12,15), attractArr5:attractArr.slice(15,18), attractArr6:attractArr.slice(18,21)})
   })
   .catch((err) => {
     next(err)
