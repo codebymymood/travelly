@@ -2,12 +2,14 @@ const router = require("express").Router();
 const axios = require('axios')
 const CitiesModel = require('../models/Cities.model')
 const ReminderModel = require('../models/Reminder.model')
-
+const isLogged = (req, res, next) => {
+  req.session.myProperty ? next() : res.redirect('/auth')
+}
 const OPENTRIP_KEY = process.env.API_KEY
 
 let cities = [CitiesModel];
 
-router.get("/mytrips", (req, res, next) => {
+router.get("/mytrips", isLogged,(req, res, next) => {
   let city1 = cities[Math.floor(Math.random()*cities.length)]
   let city2 = cities[Math.floor(Math.random()*cities.length)]
   let city3 = cities[Math.floor(Math.random()*cities.length)]
@@ -61,7 +63,7 @@ router.post("/mytrips", (req, res, next) => {
  
  }); 
 
-router.get('/mytrips/:name/:lat/:long', (req, res, next) => { ///mytrips/:name/:lat/:long
+router.get('/mytrips/:name/:lat/:long', isLogged, (req, res, next) => { ///mytrips/:name/:lat/:long
   const {name, lat, long} = req.params;
 
   axios.get(`https://api.opentripmap.com/0.1/en/places/radius?lat=${lat}&lon=${long}&radius=5000&apikey=5ae2e3f221c38a28845f05b663d6442a707b83ae2816fa50a8844e82`)
@@ -71,7 +73,7 @@ router.get('/mytrips/:name/:lat/:long', (req, res, next) => { ///mytrips/:name/:
     for (let i = 0; i < 19; i++) {
       attractArr.push(attractionName[i].properties.name)
     }
-   
+   console.log(attractArr)
     res.render('../views/trips/destinations.hbs', {layout:'logged-in-layout.hbs', attractArr})
   })
   .catch((err) => {
@@ -80,7 +82,7 @@ router.get('/mytrips/:name/:lat/:long', (req, res, next) => { ///mytrips/:name/:
 
 });
 
-router.get("/mytrips/destination/map", (req, res, next) => {
+router.get("/mytrips/destination/map", isLogged, (req, res, next) => {
 let loc = [51.5, -0.09] //mudar p variavel
 res.render('../views/trips/activities.hbs' , {loc: JSON.stringify(loc), layout:'logged-in-layout.hbs'});
 });
