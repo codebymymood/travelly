@@ -2,7 +2,12 @@ const mongoose = require("mongoose")
 
 const ReminderSchema = new mongoose.Schema({
   
-  description: String
+  description: String,
+
+//   id: {
+//     type: Schema.Types.ObjectId,
+//     ref: 'User'
+// }
 
    
 })

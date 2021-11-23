@@ -86,7 +86,7 @@ router.get('/mytrips/:name/:lat/:long', (req, res, next) => { ///mytrips/:name/:
       
     }
     console.log(attractArr)
-    res.render('../views/trips/destinations.hbs', {name, layout:'logged-in-layout.hbs', attractArr0:attractArr.slice(0,3), attractArr1:attractArr.slice(3,6), attractArr2:attractArr.slice(6,9), attractArr3:attractArr.slice(9,12), attractArr4:attractArr.slice(12,15), attractArr5:attractArr.slice(15,18), attractArr6:attractArr.slice(18,21)})
+    res.render('trips/destinations.hbs', {name,lat, long, layout:'logged-in-layout.hbs', attractArr0:attractArr.slice(0,3), attractArr1:attractArr.slice(3,6), attractArr2:attractArr.slice(6,9), attractArr3:attractArr.slice(9,12), attractArr4:attractArr.slice(12,15), attractArr5:attractArr.slice(15,18), attractArr6:attractArr.slice(18,21)})
   })
   .catch((err) => {
     next(err)
@@ -98,12 +98,11 @@ router.get('/mytrips/:name/:lat/:long', (req, res, next) => { ///mytrips/:name/:
 router.post('/mytrips/:name/:lat/:long', async(req, res, next) => {
   //THIS IS FOR MAKING THE REMINDERS LIST WORK
   const {description} = req.body 
-
+  const {name, lat, long} = req.params
   try {
-    let newReminder = ReminderModel.create(description)
-    let showReminder = ReminderModel.find(description)
+    let newReminder = await ReminderModel.create(description)
 
-    res.redirect('/mytrips/:name/:lat/:long', {newReminder, showReminder})
+    res.redirect(`/mytrips/${name}/${lat}/${long}`)
   }
   catch(err) {
     next(err)
