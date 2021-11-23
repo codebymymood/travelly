@@ -1,25 +1,27 @@
-<h2>Hey, {{username}}</h2>
+<div class= 'page-salutation'></div>
+  <h2>Hey, {{name}}.</h2>
 
-<h3>Here you can edit your profile.</h3>
+  <h4>Here you can edit your profile.</h4>
+</div>
 
 <div>
    <form method='POST' action='/profile/edit'>
 
     <div>
       <label>Change your email </label>
-      <input name='email' type='email' placeholder='Enter your email'>    //revise targeting model content
+      <input name='email' type='email' placeholder='Enter your email'>    
     </div>
 
     <div>
       <label>Change password </label>
       <p>Repeat old:</p>
-      <input name='password' type='number' placeholder="Enter current password"> //revise targeting model content
+      <input name='password' type='number' placeholder="Enter current password"> 
     </div>
 
     <div>
       <label>Change password </label>
       <p>Create new:</p>
-      <input name='password' type='number' placeholder="Enter new password"> //revise targeting model content
+      <input name='password' type='number' placeholder="Enter new password"> 
     </div>
 
     <button type='submit'>Save changes</button>
@@ -30,6 +32,10 @@
 
 <div >
     <label >Profile Photo:</label>
+    <img class='profilePic' src="{{image}}" alt='profile pic' />
                 
-    <input id="image" type="file" name="profile_photo" placeholder="Photo" required="" capture>
+    <form method="POST" action="/profile/edit/upload" enctype="multipart/form-data">
+    <input type="file" name="imageUrl" accept="image/png, image/jpg">
+    <button type="submit">Upload</button> 
+</form>  
 </div>

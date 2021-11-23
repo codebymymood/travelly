@@ -29,6 +29,21 @@ nav{
 a{
   color: #E1ECF7;
 }
+.main-header {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url('/images/background-image.jpg');
+  background-size: cover;
+  /* opacity: 0.95; */
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+  
+  .icon {
+    padding-right: 10px;
+  }
+
 
 .py-5 {
   padding-top: 0!important; 
@@ -97,6 +112,7 @@ a{
   justify-content: center;
   align-content: row;
 }
+
 .feature {
   width: 200px;
   height: auto;
@@ -125,6 +141,7 @@ a{
 width: 45%;
 margin:auto !important
 }
+
 .start-button {
   display: flex;
   justify-content: center;
@@ -205,7 +222,6 @@ margin:auto !important
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-
 }
 
 #europe {

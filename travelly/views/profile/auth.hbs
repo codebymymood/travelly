@@ -26,7 +26,11 @@
 			<input type="password" name="password" placeholder="Password" />
 			<a href="#">Forgot your password?</a>
 			<button type="submit">Sign In</button>
+			{{!-- {{#if '!isMatching'}}
+			<p class="alert alert-warning">Please re-check your user or password!</p>
+			{{/if}} --}}
 		</form>
+		
 	</div>
 	<div class="overlay-container">
 		<div class="overlay">
@@ -44,7 +48,5 @@
 	</div>
 </div>
 
-{{#if error}}
-    <p class="alert alert-warning">{{error}}</p>
-{{/if}}
+
 

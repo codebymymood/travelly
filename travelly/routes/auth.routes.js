@@ -48,10 +48,10 @@ router.post("/auth", (req, res, next) => {
               res.render('../views/profile/auth.hbs' , {error: 'Password not matching'})
               return;
           }
-      } else {
-          res.render('../views/profile/auth.hbs', {error: 'User does not exist'})
-          return;
-      }
+        } else {
+            res.render('../views/profile/auth.hbs', {error: 'User does not exist'})
+            return;
+        }
   })
   .catch((error)=>{
       next(error)
