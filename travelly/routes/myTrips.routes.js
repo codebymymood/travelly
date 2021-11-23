@@ -6,26 +6,17 @@ const OPENTRIP_KEY = process.env.API_KEY
 router.get("/mytrips", (req, res, next) => {
     res.render('../views/trips/mytrips.hbs' , {layout:'logged-in-layout.hbs'});
   });
-  
-/* router.post("/mytrips", (req, res, next) => {
- const country = req.body.city
 
-var config = {
-  method: 'get',
-  url: 'https://countriesnow.space/api/v0.1/countries/states',
-  headers: { }
-};
+router.get("/mytrips/destination", (req, res, next) => {
+    res.render('../views/trips/destinations.hbs' , {layout:'logged-in-layout.hbs'});
+});
 
-  axios(config)
-      .then((response) => { 
-          let joana = response.data.data
-          res.render('../views/trips/mytrips.hbs' , {joana})
-      })
-      .catch((err) => {
-          next(err)
-      })
+router.get("/mytrips/destination/map", (req, res, next) => {
+  let loc = [51.505, -0.09]
 
-}); */
+  res.render('../views/trips/activities.hbs' , {loc: JSON.stringify(loc), layout:'logged-in-layout.hbs'});
+});
+
 
 
 
