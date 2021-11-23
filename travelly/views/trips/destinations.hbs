@@ -32,22 +32,26 @@
       </div>
     </div>
     <div class="row">
-    <h3 class='reminder-title'>Don't forget</h3>
+    <h3 class='reminder-title'>Don't forget:</h3>
       <div class="col col-md-6 text-center">
         <div class="list-group-reminder">
          <a href="#" class="list-group-item list-group-item-action">+</a>
          <a href="#" class="list-group-item list-group-item-action">+</a>
          <a href="#" class="list-group-item list-group-item-action">+</a>
-                   
+          <a href="#" class="list-group-item list-group-item-action">+</a>
+         <a href="#" class="list-group-item list-group-item-action">+</a>
+         
 
+                   
+                <button class="open-button" onclick="openForm()">Add</button>
                 <div class="form-popup" id="myForm">
-                <form action="/mytrips/:name/:lat/:long" class="form-container">
+                <form method="POST" action="/mytrips/:name/:lat/:long" class="form-container">
                     
                     <label for="rem"><b>New Reminder:</b></label>
                     <input type="text" placeholder="Add new reminder" name="reminder" required>
 
-                    <button type="submit" class="btn">Login</button>
-                    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                    <button type="submit" class="btn">Add</button>
+                    <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
                 </form>
                 </div>
         </div>

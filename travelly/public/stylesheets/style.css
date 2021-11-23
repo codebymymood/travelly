@@ -308,34 +308,39 @@ button {
   margin-bottom: 30px;
 }
 
+/***************NÃO APAGUES CRL******************/
+
 #date {
   width: 150px;
   font-size: 14px;
 }
 
-/****POP UP FORM, DO NOT DELETE THIS***/
+/***************POP UP FORM, NÃO APAGUES CRL**********/
 
 .open-button {
   background-color: #555;
   color: white;
-  padding: 16px 20px;
+  padding: 12px 16px;
+  margin-top: 5px;
   border: none;
   cursor: pointer;
   opacity: 0.8;
-  position: fixed;
-  bottom: 23px;
-  right: 28px;
-  width: 280px;
+  position: flex;
+  width: 80px;
+  border-radius: 5px;
 }
 
 /* The popup form - hidden by default */
 .form-popup {
   display: none;
-  position: fixed;
-  top: 200px;
-  right: 15px;
+  position: absolute;
+  top: 300px;
+  left:40%;
   border: 3px solid #f1f1f1;
   z-index: 9;
+  background-color: rgba(0, 0, 0, 0.8);
+  box-shadow: 50px 50px 5000px  #9ea5ad;
+  border-radius: 10px;
 }
 
 /* Add styles to the form container */

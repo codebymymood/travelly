@@ -94,28 +94,35 @@ router.get('/mytrips/:name/:lat/:long', (req, res, next) => { ///mytrips/:name/:
 
 });
 
-router.post('/mytrips/:name/:lat/:long', (req, res, next) => {
+
+router.post('/mytrips/:name/:lat/:long', async(req, res, next) => {
+  //THIS IS FOR MAKING THE REMINDERS LIST WORK
+  const {description} = req.body 
+
+  try {
+    let newReminder = ReminderModel.create(description)
+    let showReminder = ReminderModel.find(description)
+
+    res.redirect('/mytrips/:name/:lat/:long', {newReminder, showReminder})
+  }
+  catch(err) {
+    next(err)
+  }
+
+
+
+  //THIS IS FOR MAKING THE ADD-ON ACTIVITIES WORK
 
 
 
 })
-
 
 router.get("/mytrips/destination/map", (req, res, next) => {
 let loc = [51.5, -0.09] //mudar p variavel
 res.render('../views/trips/activities.hbs' , {loc: JSON.stringify(loc), layout:'logged-in-layout.hbs'});
 });
 
-// router.post('/mytrips/:name/:lat/:long', async(req, res, next) => {
-// const {description} = req.body 
 
-//   try {
-//     let newReminder = ReminderModel.create(description)
-//     res.render()
-//   }
-  
-
-// })
 
 
 module.exports = router;
