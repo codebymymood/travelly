@@ -69,7 +69,20 @@ router.get('/mytrips/:name/:lat/:long', (req, res, next) => {
   .catch((err) => {
     next(err)
   })
+  
 
 })
+
+// router.post('/mytrips/:name/:lat/:long', async(req, res, next) => {
+// const {description} = req.body 
+
+//   try {
+//     let newReminder = ReminderModel.create(description)
+//     res.render()
+//   }
+  
+
+// })
+
 
 module.exports = router;
