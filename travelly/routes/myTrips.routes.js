@@ -75,20 +75,31 @@ router.get('/mytrips/:name/:lat/:long', (req, res, next) => { ///mytrips/:name/:
     let attractArr4 = []
     let attractArr5 = []
     let attractArr6 = []
-    console.log(attractArr)
+    
+    // console.log(attractionName)
 
-    for (let i = 0; i < 20; i++) {
-      attractArr.push(attractionName[i].properties.name)
+    for (let i = 0; i < 100; i++) {
+      
+      if(attractionName[i].properties.name !== '' && attractArr.includes(attractionName[i].properties.name) == false && attractArr.length < 20) {
+        attractArr.push(attractionName[i].properties.name)
+      }
+      
     }
-   
-    res.render('../views/trips/destinations.hbs', {layout:'logged-in-layout.hbs', attractArr0:attractArr.slice(0,3), attractArr1:attractArr.slice(3,6), attractArr2:attractArr.slice(6,9), attractArr3:attractArr.slice(9,12), attractArr4:attractArr.slice(12,15), attractArr5:attractArr.slice(15,18), attractArr6:attractArr.slice(18,21)})
+    console.log(attractArr)
+    res.render('../views/trips/destinations.hbs', {name, layout:'logged-in-layout.hbs', attractArr0:attractArr.slice(0,3), attractArr1:attractArr.slice(3,6), attractArr2:attractArr.slice(6,9), attractArr3:attractArr.slice(9,12), attractArr4:attractArr.slice(12,15), attractArr5:attractArr.slice(15,18), attractArr6:attractArr.slice(18,21)})
   })
   .catch((err) => {
     next(err)
   })
-  
 
 });
+
+router.post('/mytrips/:name/:lat/:long', (req, res, next) => {
+
+
+
+})
+
 
 router.get("/mytrips/destination/map", (req, res, next) => {
 let loc = [51.5, -0.09] //mudar p variavel

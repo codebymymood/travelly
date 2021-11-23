@@ -18,6 +18,9 @@ const userSchema = new Schema ({
        },
        image: {
          type: String
+       },
+       activities: {
+         type: [String]
        }
 })
 
