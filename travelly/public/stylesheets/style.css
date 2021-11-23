@@ -308,6 +308,11 @@ button {
   margin-bottom: 30px;
 }
 
+#date {
+  width: 150px;
+  font-size: 14px;
+}
+
 /****POP UP FORM, DO NOT DELETE THIS***/
 
 .open-button {
