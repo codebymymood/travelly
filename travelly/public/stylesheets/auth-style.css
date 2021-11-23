@@ -230,6 +230,17 @@ input {
 	width: 40px;
 }
 
+.alert-primary {
+    border-color: transparent;
+	text-align: center;
+}
+.alert {
+    position: relative;
+    padding: 15px;
+	text-align: center;
+}
+
+
 footer {
     background-color: #222;
     color: #fff;

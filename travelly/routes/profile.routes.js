@@ -2,15 +2,18 @@ const router = require("express").Router();
 const UserModel = require('../models/User.model')
 const FavTrips = require("../models/favTrips.model");
 const uploader = require('../middlewares/cloudinary.config.js');
-require('../routes/auth.routes')
 
-router.get('/profile', (req, res, next) => {
+const isLogged = (req, res, next) => {
+    req.session.myProperty ? next() : res.redirect('/auth')
+}
+
+router.get('/profile', isLogged, (req, res, next) => {
     let userInfo = req.session.myProperty
     res.render('../views/profile/profile.hbs', {layout:'logged-in-layout.hbs', name: userInfo.name} )
 })
 
 router.post('/profile', (req, res, next) => {
-
+    
     const {destination, start, end} = req.body
 
     FavTrips.create({destination, start, end})
@@ -23,8 +26,7 @@ router.post('/profile', (req, res, next) => {
 
 })
 
-router.get('/profile/edit',  (req, res, next) => {
-
+router.get('/profile/edit', isLogged, (req, res, next) => {
     UserModel.findById(req.session.myProperty._id)
     .then((result)=> {
     console.log(result.image)
