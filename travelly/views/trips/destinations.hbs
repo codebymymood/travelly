@@ -8,13 +8,18 @@
   </div>
 </section>
 
+
+
+
 <section class="pt-5 pb-5">
 <div class="container">
   <div class="d-flex justify-content-between" >
     <div class="row">
-      <h3 class="destination-activities"><span class="destination-h3">Porto</span> from 03/03 until 06/06</h3>
+      <h3 class="destination-activities"><span class="destination-h3">{{name}}</span> from <input id="date" type="date"> until <input id="date" type="date"></h3>
       <div class="col col-md-6 text-center">
         <div class="list-group-activities">            
+           
+           
             <a href="#" class="list-group-item list-group-item-action">+</a>
             <a href="#" class="list-group-item list-group-item-action">+</a>
             <a href="#" class="list-group-item list-group-item-action">+</a>
@@ -22,6 +27,7 @@
             <a href="#" class="list-group-item list-group-item-action">+</a>
             <a href="#" class="list-group-item list-group-item-action">+</a>
             <a href="#" class="list-group-item list-group-item-action disabled">+</a>
+            
         </div>
       </div>
     </div>
@@ -32,10 +38,22 @@
          <a href="#" class="list-group-item list-group-item-action">+</a>
          <a href="#" class="list-group-item list-group-item-action">+</a>
          <a href="#" class="list-group-item list-group-item-action">+</a>
+          <a href="#" class="list-group-item list-group-item-action">+</a>
          <a href="#" class="list-group-item list-group-item-action">+</a>
-         <a href="#" class="list-group-item list-group-item-action">+</a>
-         <a href="#" class="list-group-item list-group-item-action">+</a>
-         <a href="#" class="list-group-item list-group-item-action disabled">+</a>
+         
+
+                   
+                <button class="open-button" onclick="openForm()">Add</button>
+                <div class="form-popup" id="myForm">
+                <form method="POST" action="/mytrips/:name/:lat/:long" class="form-container-popup">
+                    
+                    <label for="rem"><b>New Reminder:</b></label>
+                    <input type="text" placeholder="Add new reminder" name="reminder" required>
+
+                    <button type="submit" class="btn">Add</button>
+                    <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+                </form>
+                </div>
         </div>
       </div>
     </div>
@@ -47,7 +65,7 @@
       <div class="container">
         <div class="row">
           <div class="col-6">
-            <h3 class="mb-3">Top activites from Porto : </h3>
+            <h3 class="mb-3">Top activites from {{name}}:</h3>
           </div>
           <div class="col-6 text-md-end">
             <a class="btn btn-primary mb-3 me-1"
@@ -66,79 +84,87 @@
               <div class="carousel-inner">
                 <div class="carousel-item">
                   <div class="row">
-                    <div class="col-md-4 mb-3">
-                      <div class="card">                        
-                        <div class="card-body">
-                          <h4 class="card-title">Special title treatment</h4>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                      <div class="card">
-                         <div class="card-body">
-                          <h4 class="card-title">Special title treatment</h4>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                     <div class="card">
-                         <div class="card-body">
-                          <h4 class="card-title">Special title treatment</h4>
-                        </div>
-                      </div>
+                        {{#each attractArr0}}
+                        
+                            <div class="col-md-4 mb-3">
+                            <div class="card">                        
+                                <div class="card-body">
+                                <form method="POST" action="/mytrips/:name/:lat/:long">
+                                <button type='submit'><h4 class="card-title">{{this}}</h4></button>
+                                </form> 
+                                </div>
+                            </div>
+                            </div>
+                          
+                        {{/each}}                  
                     </div>
                   </div>
                 </div>
                 <div class="carousel-item active">
                   <div class="row">
-                    <div class="col-md-4 mb-3">
-                        <div class="card">
-                          <div class="card">
-                         <div class="card-body">
-                          <h4 class="card-title">Special title treatment</h4>
-                        </div>
-                      </div>
-                      </div>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                      <div class="card">
-                        <div class="card-body">
-                          <h4 class="card-title">Special title treatment</h4>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                      <div class="card">
-                        <div class="card-body">
-                          <h4 class="card-title">Special title treatment</h4>
-                        </div>
-                      </div>
-                    </div>
+                    {{#each attractArr1}}
+                            <div class="col-md-4 mb-3">
+                            <div class="card">                        
+                                <form method="POST" action="/mytrips/:name/:lat/:long">
+                                <button type='submit'><h4 class="card-title">{{this}}</h4></button>
+                                </form> 
+                            </div>
+                            </div>
+                    {{/each}}  
                   </div>
                 </div>
                 <div class="carousel-item">
                   <div class="row">
-                    <div class="col-md-4 mb-3">
-                      <div class="card">
-                       <div class="card-body">
-                          <h4 class="card-title">Special title treatment</h4>
-                        </div>
-                      </div>
+                    {{#each attractArr2}}
+                            <div class="col-md-4 mb-3">
+                            <div class="card">                        
+                                <form method="POST" action="/mytrips/:name/:lat/:long">
+                                <button type='submit'><h4 class="card-title">{{this}}</h4></button>
+                                </form> 
+                            </div>
+                            </div>
+                    {{/each}}        
+                 </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="row">
+                    {{#each attractArr3}}
+                            <div class="col-md-4 mb-3">
+                            <div class="card">                        
+                                <form method="POST" action="/mytrips/:name/:lat/:long">
+                                <button type='submit'><h4 class="card-title">{{this}}</h4></button>
+                                </form> 
+                            </div>
+                            </div>
+                    {{/each}}
+                 </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="row">
+                    {{#each attractArr4}}
+                            <div class="col-md-4 mb-3">
+                            <div class="card">                        
+                                <form method="POST" action="/mytrips/:name/:lat/:long">
+                                <button type='submit'><h4 class="card-title">{{this}}</h4></button>
+                                </form> 
+                            </div>
+                            </div>
+                    {{/each}}   
+                  </div>
+                </div>  
+                  <div class="carousel-item">
+                    <div class="row">
+                        {{#each attractArr5}}
+                                <div class="col-md-4 mb-3">
+                                <div class="card">                        
+                                   <form method="POST" action="/mytrips/:name/:lat/:long">
+                                <button type='submit'><h4 class="card-title">{{this}}</h4></button>
+                                </form> 
+                                </div>
+                                </div>
+                        {{/each}}   
                     </div>
-                    <div class="col-md-4 mb-3">
-                      <div class="card">
-                       <div class="card-body">
-                          <h4 class="card-title">Special title treatment</h4>
-                         </div>
-                      </div>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                      <div class="card">
-                        <div class="card-body">
-                          <h4 class="card-title">Special title treatment</h4>
-                        </div>
-                      </div>
-                    </div>
+                    </div>       
                   </div>
                 </div>
               </div>
@@ -150,37 +176,8 @@
 
 
 
-<div>
 
-  {{#each attractArr}} 
-    <div>
-      <p>{{this}}</p>
-    </div>
-  {{/each}}
 
-</div>
-
-{{!--   <div class='add-button'>  
-    <img  src = '/images/add-icon.svg' <button class="open-button" onclick="openForm()"></button>
-  </div>
-    <div class="form-popup" id="myForm">
-      <form method="POST" action="/profile" class="form-container">
-        <h5>My New Trip:</h5>
-
-        <label ><b>Destination:</b></label>
-        <input type="text" placeholder="Enter city or country" name="destination" required>
-
-        <label ><b>Start:</b></label>
-        <input type="date" placeholder="dates" name="calendar" required>
-
-        <label ><b>End:</b></label>
-        <input type="date" placeholder="dates" name="calendar" required>
-
-        <button type="submit" class="btn">Add</button>
-        <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
-      </form>
-    </div>
-</div>
 
 <script>
 function openForm() {
@@ -192,7 +189,7 @@ function closeForm() {
 }
 </script>
 
-<form method="POST" action="/mytrips">
+ {{!-- <form method="POST" action="/mytrips">
   <div class="mb-3">
     <h6>Don't forget to:</h6>
     <label>Description</label>
@@ -200,5 +197,5 @@ function closeForm() {
     <br>
     <button type="submit">ADD</button>
   </div>
-</form>
- --}}
+</form>  --}}
+
