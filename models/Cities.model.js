@@ -19,7 +19,11 @@ const CitiesSchema = new Schema({
         long: {
             type: Number,
             required: true       
-          }         
+          },
+        
+          activities: {
+            type: [String]
+          }  
 
 });
   

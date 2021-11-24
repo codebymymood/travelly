@@ -5,19 +5,19 @@ const FavTripsSchema = new Schema({
     
       Destination: {
         type: String,
-        required: true
+        // required: true
       },     
     
     
       Start: {
           type: Date,
-          required: true
+          // required: true
       },    
     
     
       End: {
         type: Date,
-        required: true         
+        // required: true         
       },    
       
       
@@ -29,7 +29,11 @@ const FavTripsSchema = new Schema({
       cityId: {
         type: Schema.Types.ObjectId,
         ref: 'cities'
-    }
+    },
+
+      activities: {
+         type: [String]
+       }
       
   });
   

@@ -1,41 +1,80 @@
-<div class= 'page-salutation'></div>
-  <h2>Hey, {{name}}.</h2>
 
-  <h4>Here you can edit your profile.</h4>
-</div>
 
-<div>
+<section class="pt-5 pb-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col col-md-8 text-center">
+        <h1> Hey, {{name}}.</h1> 
+        <h1>Here you can edit your profile.</h1>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="pt-5 pb-5">
+  <div class="container">
+    <div class="row">
+     <div>
    <form method='POST' action='/profile/edit'>
 
     <div>
-      <label>Change your email </label>
+      <label>Change your email: </label><br>
       <input name='email' type='email' placeholder='Enter your email'>    
     </div>
 
     <div>
-      <label>Change password </label>
+      <br><label>Change password </label>
       <p>Repeat old:</p>
       <input name='password' type='number' placeholder="Enter current password"> 
     </div>
 
     <div>
-      <label>Change password </label>
+      <br><label>Change password </label>
       <p>Create new:</p>
       <input name='password' type='number' placeholder="Enter new password"> 
     </div>
 
-    <button type='submit'>Save changes</button>
+    <button class='save-changes-btn' type='submit'>Save changes</button>
 
     </form>
 
 </div>
+    </div>
+  </div>
+</section>
 
-<div >
+
+
+<div class='profile-pic'>
     <label >Profile Photo:</label>
-    <img class='profilePic' src="{{image}}" alt='profile pic' />
-                
+    <img class='profilePic' src="" alt='profile pic' />
     <form method="POST" action="/profile/edit/upload" enctype="multipart/form-data">
-    <input type="file" name="imageUrl" accept="image/png, image/jpg">
-    <button type="submit">Upload</button> 
+          <input type="file" name="imageUrl" accept="image/png, image/jpg">
+          <button type="submit">Upload</button>             
+    
 </form>  
+</div>
+
+<div class="profile-pic-wrapper">
+  <div class="pic-holder">
+    <!-- uploaded pic shown here -->
+    <img class="profilePic"  src="{{image}}"/>
+
+    <label for="newProfilePhoto" class="upload-file-block">
+      <div class="text-center">
+        <div class="mb-2">
+          <i class="fa fa-camera fa-2x"></i>
+        </div>
+        <div class="text-uppercase">
+          Update <br /> Profile Photo:
+          <form method="POST" action="/profile/edit/upload" enctype="multipart/form-data">
+          <input type="file" name="imageUrl" accept="image/png, image/jpg">
+          <button type="submit">Upload</button> 
+        </div>
+      </div>
+    </label>
+    <Input class="uploadProfileInput" type="file" name="profile_pic" id="newProfilePhoto" accept="image/*" style="display: none;" />
+  </div>
+
 </div>
