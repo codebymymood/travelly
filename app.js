@@ -28,19 +28,19 @@ app.locals.title = `${capitalized(projectName)} created with IronLauncher`;
 const index = require("./routes/index");
 app.use("/", index);
 
-const auth = require("./routes/auth");
+const auth = require("./routes/auth.routes");
 app.use("/", auth);
 
-const profile = require("./routes/profile");
+const profile = require("./routes/profile.routes");
 app.use("/", profile);
 
 // const editPprofile = require("./routes/profile/edit");
 // app.use("/", editPprofile);
 
-const myTrips = require("./routes/myTrips");
+const myTrips = require("./routes/myTrips.routes");
 app.use("/", myTrips);
 
-const flights = require("./routes/flights");
+const flights = require("./routes/flights.routes");
 app.use("/", flights);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
