@@ -59,6 +59,21 @@ a{
   border-color: #023047;
 }
 
+.float{
+	position:fixed;
+	width:60px;
+	height:60px;
+	background-color:#023047;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;  
+  margin-bottom: 10px;
+}
+.my-float{
+	margin-top:22px;
+}
+
 .nav-link{
   color:#E1ECF7;
 }
@@ -167,7 +182,17 @@ button {
 	align-items: center;
   text-decoration: none;
 }
-
+.start-planning-button-profile{
+  color: #e1ecf7;
+	font-size: 24px;
+	border-radius: 4px;
+	background-color: #859399;
+	box-shadow: 2px 3px 2px  #9ea5ad;
+	pointer-events: none;
+	display: inline-flex;
+	align-items: center;
+  text-decoration: none;
+}
 .start-planning-button:hover {
 	background-color: #023f5e;
   color: #E1ECF7;
@@ -308,6 +333,7 @@ button {
   margin-bottom: 30px;
 }
 
+<<<<<<< HEAD
 /***************NÃO APAGUES CRL******************/
 
 #date {
@@ -386,3 +412,42 @@ button {
 .form-container .btn:hover, .open-button:hover {
   opacity: 1;
 }
+=======
+
+
+.page_404{ 
+  padding-bottom: 40px; 
+
+}
+
+.page_404 img{
+   width:100%;
+}
+
+.four_zero_four_bg{ 
+  background-image: url(https://bestanimations.com/media/aircraft/273077515plane-travel-animated-gif-37.gif);
+  height: 400px;
+  background-position: center;
+  background-repeat: no-repeat;
+ }
+ 
+ 
+ .four_zero_four_bg h1{
+ font-size:80px;
+ }
+ 
+.four_zero_four_bg h3{
+	font-size:80px;
+}
+			 
+.link_404{			 
+	color: #fff!important;
+  padding: 10px 20px;
+  background: #023f5e;
+  margin: 20px 0;
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 2px;
+}
+	
+>>>>>>> d0217e16db0a1884ac4e0b4a10b546b3738c319b

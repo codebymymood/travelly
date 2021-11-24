@@ -9,16 +9,25 @@ router.get("/auth", (req, res, next) => {
 
 router.post("/auth", (req, res, next) => {
   const {name, email, password} = req.body
+  
+  if (email == '' && password == ''){
+    res.render('../views/profile/auth.hbs', {error: 'Please enter your email and password!'})
+    return;
+}
 
   let passwordRegExp = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/
   if(!passwordRegExp.test(password)){
-      res.render('../views/profile/auth.hbs')
+      res.render('../views/profile/auth.hbs', {error: "Please enter the minimum of 8 characters and at least one letter!"})
       return;
   } 
 
   let emailRegExp = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/
   if(!emailRegExp.test(email)){
+<<<<<<< HEAD
       res.render('profile/auth.hbs')
+=======
+      res.render('../views/profile/auth.hbs', {error: 'This is not a valid e-mail'})
+>>>>>>> d0217e16db0a1884ac4e0b4a10b546b3738c319b
       return;
   }
 
@@ -26,10 +35,15 @@ router.post("/auth", (req, res, next) => {
   let hash = bcrypt.hashSync(password, salt);
 
   UserModel.create({name, email, password:hash})
+
   .then((success)=>{
       res.redirect("/ãuth");
   })
   .catch((error)=>{
+    if (name == ''){
+        res.render('../views/profile/auth.hbs', {error: 'Please enter your name!'})
+        return;
+      }
       next(error)
   })
 
@@ -56,12 +70,16 @@ router.post("/auth", (req, res, next) => {
   .catch((error)=>{
       next(error)
   })
-
-
 });
 
+const isLogged = (req, res, next) => {
+    req.session.myProperty ? next() : res.redirect('/auth')
+}
 
-
+router.get('/logout', isLogged, (req, res, next) => {
+    req.session.destroy()
+    res.redirect('/auth')
+})
 
 
 
