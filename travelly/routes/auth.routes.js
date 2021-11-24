@@ -1,15 +1,16 @@
 const router = require("express").Router();
 const UserModel = require('../models/User.model')
 const bcrypt = require('bcrypt')
+
 const isLogged = (req, res, next) => {
     req.session.myProperty ? next() : res.redirect('/auth')
 }
 //shows login interface
 router.get("/auth", (req, res, next) => { 
-    res.render("../views/profile/auth.hbs");
+    req.session.myProperty ? res.redirect('/profile') : res.render("../views/profile/auth.hbs");
 });
 
-router.post("/auth", (req, res, next) => {
+router.post("/auth/signup", (req, res, next) => {
   const {name, email, password} = req.body
   
   if (email == '' && password == ''){
@@ -41,34 +42,43 @@ router.post("/auth", (req, res, next) => {
     if (name == ''){
         res.render('../views/profile/auth.hbs', {error: 'Please enter your name!'})
         return;
-      }
-      next(error)
+    }
+    if(email){
+        res.render('../views/profile/auth.hbs', {error: 'Email already exists!'})
+        return;
+    }
+      
+    next(error)
   })
 
+});
+
+router.post('/auth/signin', (req, res, next) => {
+    const {email, password} = req.body
+    
+    UserModel.find({email})
+    .then((userResponse)=>{
+        if(userResponse.length){
+            let userObj = userResponse[0]
   
-  UserModel.find({email})
-  .then((userResponse)=>{
-      if(userResponse.length){
-          let userObj = userResponse[0]
-
-          let isMatching = bcrypt.compareSync(password, userObj.password);
-
-          if(isMatching){
-              req.session.myProperty = userObj
-              res.redirect('/profile')
+            let isMatching = bcrypt.compareSync(password, userObj.password);
+  
+            if(isMatching){
+                req.session.myProperty = userObj
+                res.redirect('/profile')
+            } else {
+                res.render('../views/profile/auth.hbs' , {error: 'Password not matching'})
+                return;
+            }
           } else {
-              res.render('../views/profile/auth.hbs' , {error: 'Password not matching'})
+              res.render('../views/profile/auth.hbs', {error: 'User does not exist'})
               return;
           }
-        } else {
-            res.render('../views/profile/auth.hbs', {error: 'User does not exist'})
-            return;
-        }
-  })
-  .catch((error)=>{
-      next(error)
-  })
-});
+    })
+    .catch((error)=>{
+        next(error)
+    })
+})
 
 router.get('/logout', isLogged, (req, res, next) => {
     req.session.destroy()
