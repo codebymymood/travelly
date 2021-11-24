@@ -2,6 +2,7 @@ const router = require("express").Router();
 const axios = require('axios')
 const CitiesModel = require('../models/Cities.model')
 const ReminderModel = require('../models/Reminder.model')
+const FavTripsModel = require('../models/favTrips.model')
 const isLogged = (req, res, next) => {
   req.session.myProperty ? next() : res.redirect('/auth')
 }
@@ -10,6 +11,7 @@ const OPENTRIP_KEY = process.env.API_KEY
 let cities = [CitiesModel];
 
 router.get("/mytrips", isLogged,(req, res, next) => {
+  let userInfo = req.session.myProperty
   let city1 = cities[Math.floor(Math.random()*cities.length)]
   let city2 = cities[Math.floor(Math.random()*cities.length)]
   let city3 = cities[Math.floor(Math.random()*cities.length)]
@@ -33,7 +35,7 @@ router.get("/mytrips", isLogged,(req, res, next) => {
 
         }
 
-        res.render('../views/trips/mytrips.hbs',{layout:'logged-in-layout.hbs', nameResults0:nameResults.slice(0,3), nameResults2:nameResults.slice(3,6), nameResults3:nameResults.slice(6,9), nameResults4:nameResults.slice(9,12), nameResults5:nameResults.slice(12,15), nameResults6:nameResults.slice(15,18), nameResults7:nameResults.slice(18,21)});
+        res.render('../views/trips/mytrips.hbs',{name: userInfo.name, layout:'logged-in-layout.hbs', nameResults0:nameResults.slice(0,3), nameResults2:nameResults.slice(3,6), nameResults3:nameResults.slice(6,9), nameResults4:nameResults.slice(9,12), nameResults5:nameResults.slice(12,15), nameResults6:nameResults.slice(15,18), nameResults7:nameResults.slice(18,21)});
       })
       .catch((err) => {
         next(err)
@@ -43,19 +45,12 @@ router.get("/mytrips", isLogged,(req, res, next) => {
 
 router.post("/mytrips", (req, res, next) => {
   const city = req.body.city
-  console.log(city)
+  
  
      axios.get(`https://api.opentripmap.com/0.1/en/places/geoname?name=${city}}&apikey=5ae2e3f221c38a28845f05b663d6442a707b83ae2816fa50a8844e82`)
        .then((response) => { 
-           let cityname = response.data.name
-           let lat = response.data.lat
-           let long = response.data.long      
-           
-           let city1 = { name: cityname, lat: lat, long: long};    
-           let city2 = cities[Math.floor(Math.random()*cities.length)];
-           let city3 = cities[Math.floor(Math.random()*cities.length)];
-           
-           res.render('../views/trips/mytrips.hbs', {layout: 'logged-in-layout.hbs', city1, city2, city3})
+                  
+           res.render('../views/trips/mytrips.hbs', {layout: 'logged-in-layout.hbs'})
        })
        .catch((err) => {
            next(err)
@@ -87,7 +82,7 @@ router.get('/mytrips/:name/:lat/:long', isLogged, (req, res, next) => {
       }
       
     }
-    // console.log(attractArr)
+    
     res.render('../views/trips/destinations.hbs', {name,lat, long, layout:'logged-in-layout.hbs', attractArr0:attractArr.slice(0,3), attractArr1:attractArr.slice(3,6), attractArr2:attractArr.slice(6,9), attractArr3:attractArr.slice(9,12), attractArr4:attractArr.slice(12,15), attractArr5:attractArr.slice(15,18), attractArr6:attractArr.slice(18,21)})
    
   })
@@ -95,14 +90,14 @@ router.get('/mytrips/:name/:lat/:long', isLogged, (req, res, next) => {
     next(err)
   })
 
-  const {description} = req.body 
-  ReminderModel.find(description)
-  .then (() => {
-    res.render('..views/trips/description.hbs', {description})
-  })
-  .catch((err) =>{
-    next(err)
-  })
+  // const {description} = req.body 
+  // ReminderModel.find(description)
+  // .then (() => {
+  //   res.render('../views/trips/description.hbs', {description})
+  // })
+  // .catch((err) =>{
+  //   next(err)
+  // })
 
 
 });
@@ -110,10 +105,12 @@ router.get('/mytrips/:name/:lat/:long', isLogged, (req, res, next) => {
 
 router.post('/mytrips/:name/:lat/:long', async(req, res, next) => {
   //THIS IS FOR MAKING THE REMINDERS LIST WORK
-  const {description} = req.body 
+  const {reminder} = req.body 
   const {name, lat, long} = req.params
+  console.log(req.body)
   try {
-    let newReminder = await ReminderModel.create(description)
+    let favTripId = await FavTripsModel.findOne({})
+    let newReminder = await ReminderModel.create({description: reminder})
 
     res.redirect(`/mytrips/${name}/${lat}/${long}`)
   }
@@ -128,8 +125,6 @@ router.post('/mytrips/:name/:lat/:long', async(req, res, next) => {
 
 
 })
-
-// router.get("/mytrips/destination/map", (req, res, next) => {
 
 router.get("/mytrips/destination/map", isLogged, (req, res, next) => {
 let loc = [51.5, -0.09] //mudar p variavel

@@ -4,8 +4,7 @@ const { Schema, model } = require("mongoose");
 const FavTripsSchema = new Schema({
     
       Destination: {
-        type: String,
-        required: true
+        type: String
       },     
     
     

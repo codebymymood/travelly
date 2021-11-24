@@ -45,7 +45,7 @@
                 <form method="POST" action="/mytrips/{{name}}/{{lat}}/{{long}}" class="form-container">
                     
                     <label for="rem"><b>New Reminder:</b></label>
-                    <input type="text" placeholder="Add new reminder" name="reminder" required>
+                    <input type="text" placeholder="Add new reminder" name="reminder" required></input>
 
                     <button type="submit" class="btn">Add</button>
                     <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
@@ -172,10 +172,6 @@
     </section>
 
 
-
-
-
-
 <script>
 function openForm() {
   document.getElementById("myForm").style.display = "block";
@@ -186,13 +182,5 @@ function closeForm() {
 }
 </script>
 
- {{!-- <form method="POST" action="/mytrips">
-  <div class="mb-3">
-    <h6>Don't forget to:</h6>
-    <label>Description</label>
-    <input value="{{todo.description}}" type="text" name="description">
-    <br>
-    <button type="submit">ADD</button>
-  </div>
-</form>  --}}
+ 
 

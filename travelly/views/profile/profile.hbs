@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col col-md-8 text-center">
-        <h1> Hey, {{req.session.myProperty.name}}.</h1> 
+        <h1> Hey, {{name}}.</h1> 
         <h1>Here is your travel bucket list:</h1>
       </div>
     </div>
@@ -14,8 +14,8 @@
     <div class="row">
       <h3>Current trip:</h3>
         <li>    
-         <a class="start-planning-button" href='/'>
-         <span class="start-planning-button-text">Açores 10-13 Dezembro de 2021</span>
+         <a class="start-planning-button" href='/mytrips'>
+         <span class="start-planning-button-text">{{destination}} 10-13 Dezembro de 2021</span>
          </a>
       </li>
     </div>
@@ -25,7 +25,7 @@
 <section class="pt-5 pb-5">
     <div class="container">
 <div class="row justify-content-center">
-    <a href="#" class="float">
+    <a href="/mytrips" class="float">
 <i class="fa fa-plus my-float"></i>
 </a>
   </div>  
@@ -38,7 +38,7 @@
       <h3 id='profile-h3'>Trip History:</h3>
       <hr>
         <li>    
-         <a class="start-planning-button-profile" href='/auth'>
+         <a class="start-planning-button-profile">
          <span class="start-planning-button-text">Madeira 14-16 Março de 2021</span>
          </a>
       </li>

@@ -333,6 +333,43 @@ button {
   margin-bottom: 30px;
 }
 
+
+
+.page_404{ 
+  padding-bottom: 40px; 
+
+}
+
+.page_404 img{
+   width:100%;
+}
+
+.four_zero_four_bg{ 
+  background-image: url(https://bestanimations.com/media/aircraft/273077515plane-travel-animated-gif-37.gif);
+  height: 400px;
+  background-position: center;
+  background-repeat: no-repeat;
+ }
+ 
+ 
+ .four_zero_four_bg h1{
+ font-size:80px;
+ }
+ 
+.four_zero_four_bg h3{
+	font-size:80px;
+}
+			 
+.link_404{			 
+	color: #fff!important;
+  padding: 10px 20px;
+  background: #023f5e;
+  margin: 20px 0;
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 2px;
+}
+	
 /***************NÃO APAGUES CRL******************/
 
 #date {
@@ -342,7 +379,7 @@ button {
 
 /***************POP UP FORM, NÃO APAGUES CRL**********/
 
-.open-button {
+.open-buttons {
   background-color: #555;
   color: white;
   padding: 12px 16px;
@@ -369,7 +406,7 @@ button {
 }
 
 /* Add styles to the form container */
-.form-container {
+.form-container-popup {
   max-width: 300px;
   padding: 10px;
   background-color: white;

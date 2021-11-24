@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col col-md-8 text-center">
-        <h1> Hey, {{req.session.myProperty.name}}.</h1> 
+        <h1> Hey, {{name}}.</h1> 
         <h1>Where are we going to fly today?</h1>
       </div>
     </div>
@@ -158,8 +158,16 @@
                   <input type="text" class="form-control form-control-lg" placeholder="Search for country">
                 </div>
                 <div class="col-sm-4 col-md-3">
-                  <button type="submit"
-                    class="btn btn-lg w-100 btn-primary">Search</button>
+                  <button class="open-button" onclick="openForm()">Search</button>
+                  <div class="form-popup" id="myForm">
+                    <form method="POST" action="/mytrips" class="form-container">                    
+                      <label for="rem"><b>Insert Dates:</b></label>
+                      <input type="text" placeholder="Add new reminder" name="reminder" required/></input>
+
+                      <button type="submit" class="btn">Add</button>
+                      <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+                    </form>
+                  </div>
                 </div>
               </div>
             </form>
@@ -169,4 +177,14 @@
     </section>
 
 
+
+<script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
 

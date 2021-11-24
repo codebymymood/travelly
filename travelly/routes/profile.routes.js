@@ -18,7 +18,7 @@ router.post('/profile', (req, res, next) => {
 
     FavTrips.create({destination, start, end})
     .then(() => {
-        res.redirect('/profile')
+        res.redirect('/mytrips')
     })
     .catch((err) => {
         next(err)

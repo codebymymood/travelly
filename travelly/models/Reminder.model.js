@@ -1,5 +1,6 @@
 
 const { Schema, model } = require("mongoose");
+require('../models/favTrips.model')
 
 const ReminderSchema = new Schema({
   

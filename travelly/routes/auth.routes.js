@@ -1,10 +1,12 @@
 const router = require("express").Router();
 const UserModel = require('../models/User.model')
 const bcrypt = require('bcrypt')
-
+const isLogged = (req, res, next) => {
+    req.session.myProperty ? next() : res.redirect('/auth')
+}
 //shows login interface
-router.get("/auth", (req, res, next) => {
-  res.render("profile/auth.hbs");
+router.get("/auth" ,(req, res, next) => { 
+    res.render("../views/profile/auth.hbs");
 });
 
 router.post("/auth", (req, res, next) => {
@@ -68,10 +70,6 @@ router.post("/auth", (req, res, next) => {
       next(error)
   })
 });
-
-const isLogged = (req, res, next) => {
-    req.session.myProperty ? next() : res.redirect('/auth')
-}
 
 router.get('/logout', isLogged, (req, res, next) => {
     req.session.destroy()
