@@ -1,17 +1,19 @@
-const mongoose = require("mongoose")
 
-const ReminderSchema = new mongoose.Schema({
+const { Schema, model } = require("mongoose");
+
+const ReminderSchema = new Schema({
   
   description: String,
 
-  UserId: {
+  favTripsId: {
     type: Schema.Types.ObjectId,
-    ref: 'User'
+    ref: 'favTrips'
 }
 
    
 })
 
-const ReminderModel = mongoose.model("Reminder", ReminderSchema) 
+
+const ReminderModel = model("Reminder", ReminderSchema);
 
 module.exports = ReminderModel

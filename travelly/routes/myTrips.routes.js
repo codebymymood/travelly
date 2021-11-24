@@ -33,7 +33,7 @@ router.get("/mytrips", isLogged,(req, res, next) => {
 
         }
 
-        res.render('/trips/mytrips.hbs',{layout:'logged-in-layout.hbs', nameResults0:nameResults.slice(0,3), nameResults2:nameResults.slice(3,6), nameResults3:nameResults.slice(6,9), nameResults4:nameResults.slice(9,12), nameResults5:nameResults.slice(12,15), nameResults6:nameResults.slice(15,18), nameResults7:nameResults.slice(18,21)});
+        res.render('../views/trips/mytrips.hbs',{layout:'logged-in-layout.hbs', nameResults0:nameResults.slice(0,3), nameResults2:nameResults.slice(3,6), nameResults3:nameResults.slice(6,9), nameResults4:nameResults.slice(9,12), nameResults5:nameResults.slice(12,15), nameResults6:nameResults.slice(15,18), nameResults7:nameResults.slice(18,21)});
       })
       .catch((err) => {
         next(err)
@@ -55,7 +55,7 @@ router.post("/mytrips", (req, res, next) => {
            let city2 = cities[Math.floor(Math.random()*cities.length)];
            let city3 = cities[Math.floor(Math.random()*cities.length)];
            
-           res.render('/trips/mytrips.hbs', {layout: 'logged-in-layout.hbs', city1, city2, city3})
+           res.render('../views/trips/mytrips.hbs', {layout: 'logged-in-layout.hbs', city1, city2, city3})
        })
        .catch((err) => {
            next(err)
@@ -63,7 +63,7 @@ router.post("/mytrips", (req, res, next) => {
  
  }); 
 
-router.get('/mytrips/:name/:lat/:long', isLogged, (req, res, next) => { ///mytrips/:name/:lat/:long
+router.get('/mytrips/:name/:lat/:long', isLogged, (req, res, next) => { 
   const {name, lat, long} = req.params;
 
   axios.get(`https://api.opentripmap.com/0.1/en/places/radius?lat=${lat}&lon=${long}&radius=5000&apikey=5ae2e3f221c38a28845f05b663d6442a707b83ae2816fa50a8844e82`)
@@ -87,13 +87,23 @@ router.get('/mytrips/:name/:lat/:long', isLogged, (req, res, next) => { ///mytri
       }
       
     }
-    console.log(attractArr)
-    res.render('trips/destinations.hbs', {name,lat, long, layout:'logged-in-layout.hbs', attractArr0:attractArr.slice(0,3), attractArr1:attractArr.slice(3,6), attractArr2:attractArr.slice(6,9), attractArr3:attractArr.slice(9,12), attractArr4:attractArr.slice(12,15), attractArr5:attractArr.slice(15,18), attractArr6:attractArr.slice(18,21)})
+    // console.log(attractArr)
+    res.render('../views/trips/destinations.hbs', {name,lat, long, layout:'logged-in-layout.hbs', attractArr0:attractArr.slice(0,3), attractArr1:attractArr.slice(3,6), attractArr2:attractArr.slice(6,9), attractArr3:attractArr.slice(9,12), attractArr4:attractArr.slice(12,15), attractArr5:attractArr.slice(15,18), attractArr6:attractArr.slice(18,21)})
    
   })
   .catch((err) => {
     next(err)
   })
+
+  const {description} = req.body 
+  ReminderModel.find(description)
+  .then (() => {
+    res.render('..views/trips/description.hbs', {description})
+  })
+  .catch((err) =>{
+    next(err)
+  })
+
 
 });
 
@@ -120,10 +130,10 @@ router.post('/mytrips/:name/:lat/:long', async(req, res, next) => {
 })
 
 // router.get("/mytrips/destination/map", (req, res, next) => {
-  
+
 router.get("/mytrips/destination/map", isLogged, (req, res, next) => {
 let loc = [51.5, -0.09] //mudar p variavel
-res.render('/trips/activities.hbs' , {loc: JSON.stringify(loc), layout:'logged-in-layout.hbs'});
+res.render('../views/trips/activities.hbs' , {loc: JSON.stringify(loc), layout:'logged-in-layout.hbs'});
 });
 
 

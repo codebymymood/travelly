@@ -24,10 +24,10 @@ const FavTripsSchema = new Schema({
         ref: 'User'
     },
 
-    cityId: {
-      type: Schema.Types.ObjectId,
-      ref: 'cities'
-  }
+      cityId: {
+        type: Schema.Types.ObjectId,
+        ref: 'cities'
+    }
       
   });
   

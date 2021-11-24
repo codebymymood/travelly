@@ -22,9 +22,9 @@ const userSchema = new Schema ({
        activities: {
          type: [String]
        },
-       reminders: {
-         type: [String]
-       },
+      //  reminders: {
+      //    type: [String]
+      //  },
        favTrips: {
          type: [String]
        }
