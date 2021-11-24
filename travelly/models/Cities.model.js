@@ -19,8 +19,7 @@ const CitiesSchema = new Schema({
         long: {
             type: Number,
             required: true       
-          },        
-    
+          }         
 
 });
   

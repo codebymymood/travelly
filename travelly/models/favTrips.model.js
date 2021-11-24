@@ -16,7 +16,18 @@ const FavTripsSchema = new Schema({
     
       End: {
         type: Date         
-      }        
+      },    
+      
+      
+      UserId: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    },
+
+    cityId: {
+      type: Schema.Types.ObjectId,
+      ref: 'cities'
+  }
       
   });
   

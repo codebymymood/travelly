@@ -4,10 +4,10 @@ const ReminderSchema = new mongoose.Schema({
   
   description: String,
 
-//   id: {
-//     type: Schema.Types.ObjectId,
-//     ref: 'User'
-// }
+  UserId: {
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+}
 
    
 })

@@ -24,6 +24,9 @@ const userSchema = new Schema ({
        },
        reminders: {
          type: [String]
+       },
+       favTrips: {
+         type: [String]
        }
 })
 
