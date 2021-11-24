@@ -1,0 +1,16 @@
+
+ <div class='add-button'>  
+    <img  src = '/images/add-icon.svg' <button class="open-button" onclick="openForm()"></button>
+  </div>
+    <div class="form-popup" id="myForm">
+      <form method="POST" action="/profile" class="form-container-popup">
+        <h5>Reminders for the trip:</h5>
+
+        <label ><b>{{Reminder.description}}</b></label>
+        <input type="text" placeholder="Add reminder" name="reminder" required>
+
+        <button type="submit" class="btn">Add</button>
+        <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+      </form>
+    </div>
+</div>
