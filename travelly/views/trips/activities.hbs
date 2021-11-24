@@ -16,12 +16,17 @@
         <div id="mapid">
             <script>
                 let ourDataDromRoutes = {{{loc}}}
+                let locations = {{{locations}}}
                 var map = L.map('mapid').setView(ourDataDromRoutes, 13);
                 L.tileLayer('https://api.mapbox.com/styles/v1/mariorui97/ckwbg8x4a71zq15t60aagxfgr/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWFyaW9ydWk5NyIsImEiOiJja3diZzZkdzkxYmxqMm9xbXkwYjllMWs5In0.YMoDUkIF1ygYH3YZ8E3Ptg', {
                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 }).addTo(map);
-                L.marker([51.5, -0.09]).addTo(map)
+                locations.forEach((singleLocation) => {
+                  L.marker(singleLocation).addTo(map)
                    .bindPopup('This is my pop up<br> Easily customizable.')
+                })
+                 {{!-- L.marker([51.5, -0.09]).addTo(map)
+                   .bindPopup('This is my pop up<br> Easily customizable.') --}}
             </script>
         </div>
     </div>

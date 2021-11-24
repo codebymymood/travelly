@@ -2,7 +2,8 @@ const router = require("express").Router();
 const axios = require('axios')
 const CitiesModel = require('../models/Cities.model')
 const ReminderModel = require('../models/Reminder.model')
-const FavTripsModel = require('../models/favTrips.model')
+const FavTripsModel = require('../models/favTrips.model');
+const FavTrips = require("../models/favTrips.model");
 const isLogged = (req, res, next) => {
   req.session.myProperty ? next() : res.redirect('/auth')
 }
@@ -44,20 +45,20 @@ router.get("/mytrips", isLogged,(req, res, next) => {
 
 router.post("/mytrips", (req, res, next) => {
   const city = req.body.city
-  
+
      axios.get(`https://api.opentripmap.com/0.1/en/places/geoname?name=${city}}&apikey=5ae2e3f221c38a28845f05b663d6442a707b83ae2816fa50a8844e82`)
-       .then((response) => { 
+       .then((response) => {
                   
            res.render('trips/mytrips.hbs', {layout: 'logged-in-layout.hbs'})
        })
        .catch((err) => {
            next(err)
        })
- 
+
  }); 
 
-router.get('/mytrips/:name/:lat/:long', isLogged, (req, res, next) => { 
-  const {name, lat, long} = req.params;
+router.get('/mytrips/:name/:lat/:long/:start/:end', isLogged, (req, res, next) => { 
+  const {name, lat, long, start, end} = req.params;
 
   axios.get(`https://api.opentripmap.com/0.1/en/places/radius?lat=${lat}&lon=${long}&radius=5000&apikey=5ae2e3f221c38a28845f05b663d6442a707b83ae2816fa50a8844e82`)
   .then((response) => {
@@ -80,8 +81,11 @@ router.get('/mytrips/:name/:lat/:long', isLogged, (req, res, next) => {
       }
       
     }
+
+    //TODO:`get the reminders as well here and send dit to that hbs file
+    // await ReminderModel.find()
     
-    res.render('trips/destinations.hbs', {name,lat, long, layout:'logged-in-layout.hbs', attractArr0:attractArr.slice(0,3), attractArr1:attractArr.slice(3,6), attractArr2:attractArr.slice(6,9), attractArr3:attractArr.slice(9,12), attractArr4:attractArr.slice(12,15), attractArr5:attractArr.slice(15,18), attractArr6:attractArr.slice(18,21)})
+    res.render('trips/destinations.hbs', {name, lat, long, start, end, layout:'logged-in-layout.hbs', attractArr0:attractArr.slice(0,3), attractArr1:attractArr.slice(3,6), attractArr2:attractArr.slice(6,9), attractArr3:attractArr.slice(9,12), attractArr4:attractArr.slice(12,15), attractArr5:attractArr.slice(15,18), attractArr6:attractArr.slice(18,21)})
    
   })
   .catch((err) => {
@@ -101,32 +105,71 @@ router.get('/mytrips/:name/:lat/:long', isLogged, (req, res, next) => {
 });
 
 
-router.post('/mytrips/:name/:lat/:long', async(req, res, next) => {
+router.post('/mytrips/:name/:lat', async(req, res, next) => {
   //THIS IS FOR MAKING THE REMINDERS LIST WORK
   const {reminder} = req.body 
-  const {name, lat, long} = req.params
+  const {name, lat, long, start, end} = req.params
   console.log(req.body)
   try {
     let favTripId = await FavTripsModel.findOne({})
     let newReminder = await ReminderModel.create({description: reminder})
 
-    res.redirect(`/mytrips/${name}/${lat}/${long}`)
+    res.redirect(`/mytrips/${name}/${lat}/${long}/${start}/${end}`)
   }
   catch(err) {
     next(err)
   }
 
+  //THIS IS FOR MAKING THE ADD-ON ACTIVITIES WORK
+
+})
+
+router.post('/mytrips/favtrips', async(req, res, next) => {
+  const {destination, start, end} = req.body
+
+  FavTripsModel.create({destination, start, end})
+  .then(()=>{
+     CitiesModel.find({name:destination})
+     .then((result)=>{
+      const {name, lat, long} = result[0]
+      res.redirect(`/mytrips/${name}/${lat}/${long}/${start}/${end}`)
+     })
+    .catch((error)=>{
+      next(error)
+    })
+ 
+  })
+  .catch((error)=>{
+     next(error)
+  })
+
+  /* CitiesModel({start: startdate, end: enddate}) */
 
 
   //THIS IS FOR MAKING THE ADD-ON ACTIVITIES WORK
 
-
-
 })
+
+
 
 router.get("/mytrips/destination/map", isLogged, (req, res, next) => {
 let loc = [51.5, -0.09] //mudar p variavel
-res.render('trips/activities.hbs' , {loc: JSON.stringify(loc), layout:'logged-in-layout.hbs'});
+/*
+ send an array of locations = [
+ [51.5, -0.09],
+ [21.5, -0.09],
+ [41.5, -0.09],
+ [31.5, -0.09]
+]
+*/
+let locations = [
+  [51.5, -0.09],
+  [21.5, -0.09],
+  [41.5, -0.09],
+  [31.5, -0.09]
+ ]
+ res.render('trips/activities.hbs' , {locations: JSON.stringify(locations),loc: JSON.stringify(loc), layout:'logged-in-layout.hbs'});
+// res.render('trips/activities.hbs' , {loc: JSON.stringify(loc), layout:'logged-in-layout.hbs'});
 });
 
 

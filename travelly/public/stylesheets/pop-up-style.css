@@ -32,12 +32,11 @@
     border-radius: 8px;
     font-weight: bolder;
   }
-
+ 
   .form-popup1{
     display: none;
     position: absolute;
     top:10px;
-
     border: 3px solid #f1f1f1;
     background-color: rgba(0, 0, 0, 0.8);
     box-shadow: 50px 50px 5000px  #9ea5ad;
@@ -63,6 +62,7 @@
     border: none;
     background: #f1f1f1;
     font-weight: bolder;
+    pointer-events:none;
   }
   
 

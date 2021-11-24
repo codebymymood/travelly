@@ -3,18 +3,21 @@ const { Schema, model } = require("mongoose");
 
 const FavTripsSchema = new Schema({
     
-      Destination: {
-        type: String
+      destination: {
+        type: String,
+        required: true
       },     
     
     
-      Start: {
-          type: Date
+      start: {
+          type: Date,
+          required: true
       },    
     
     
-      End: {
-        type: Date         
+      end: {
+        type: Date,
+        required: true         
       },    
       
       
