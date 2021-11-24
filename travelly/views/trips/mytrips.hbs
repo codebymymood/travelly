@@ -47,9 +47,18 @@
                         <div class="col-md-4 mb-3">
                       <div class="card">
                         <img class="img-fluid" alt="100%x280"
-                          src="https://images.unsplash.com/photo-1532781914607-2031eca2f00d?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=7c625ea379640da3ef2e24f20df7ce8d">
+                          src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1421&q=80">
                         <div class="card-body">
-                          <h4 class="card-title"><a href="/mytrips/{{this.name}}/{{this.lat}}/{{this.long}}">{{this.name}}</a></h4>
+                          <button class="card-title"></button>
+                             <div class="form-popup3">
+                              <form method="POST" action="/mytrips/favtrips" class="form-container-popup">    
+                              <label for="rem"><b>Select dates for:</b></label>             
+                              <input class= "input-form" name="destination" value={{this.name}}> 
+                              <p>Start date: <input id="start" type="date" name="start"></p>
+                              <p>End date: <input id="end" type="date" name="end"></p>
+                              <button type="submit" class="add">Add</button>
+                            </form>
+                           </div>
                         </div>
                       </div>
                     </div>
@@ -62,19 +71,15 @@
                         <div class="col-md-4 mb-3">
                       <div class="card">
                         <img class="img-fluid" alt="100%x280"
-                          src="https://images.unsplash.com/photo-1532781914607-2031eca2f00d?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=7c625ea379640da3ef2e24f20df7ce8d">
-                        <div class="card-body">                        
-                            <button class="card-title" onclick="openForm()">{{this.name}}</button>
-                             <div class="form-popup1" id="myForm">
-                              <form method="POST" action="/mytrips/{{this.name}}/{{this.lat}}/{{this.long}}" class="form-container-popup">
-                    
-                              <label for="rem"><b>Select dates:</b></label>
-                              <input class= "input-form" type="text" placeholder="{{this.name}}" name="reminder" />
-
+                          src="https://images.unsplash.com/photo-1494783367193-149034c05e8f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80">
+                        <div class="card-body">                   
+                              <form method="POST" action="/mytrips/favtrips" class="form-container-popup">    
+                              <label for="rem"><b>Select dates for:</b></label>             
+                              <input class= "input-form" name="destination" value={{this.name}} > 
+                              <p>Start date: <input id="start" type="date" name="start" required /></p>
+                              <p>End date: <input id="end" type="date" name="end" required /></p>
                               <button type="submit" class="add">Add</button>
-                              <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
                             </form>
-                           </div>
                         </div>
                       </div>
                     </div>
@@ -87,9 +92,15 @@
                         <div class="col-md-4 mb-3">
                       <div class="card">
                         <img class="img-fluid" alt="100%x280"
-                          src="https://images.unsplash.com/photo-1532781914607-2031eca2f00d?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=7c625ea379640da3ef2e24f20df7ce8d">
+                          src="https://images.unsplash.com/photo-1498307833015-e7b400441eb8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1528&q=80">
                         <div class="card-body">
-                          <h4 class="card-title"><a href="/mytrips/{{this.name}}/{{this.lat}}/{{this.long}}">{{this.name}}</a></h4>
+                              <form method="POST" action="/mytrips/favtrips" class="form-container-popup">    
+                              <label for="rem"><b>Select dates for:</b></label>             
+                              <input class= "input-form" name="destination" value={{this.name}}> 
+                              <p>Start date: <input id="start" type="date" name="start"></p>
+                              <p>End date: <input id="end" type="date" name="end"></p>
+                              <button type="submit" class="add">Add</button>
+                            </form>                     
                         </div>
                       </div>
                     </div>
@@ -102,9 +113,15 @@
                         <div class="col-md-4 mb-3">
                       <div class="card">
                         <img class="img-fluid" alt="100%x280"
-                          src="https://images.unsplash.com/photo-1532781914607-2031eca2f00d?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=7c625ea379640da3ef2e24f20df7ce8d">
+                          src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1474&q=80">
                         <div class="card-body">
-                          <h4 class="card-title"><a href="/mytrips/{{this.name}}/{{this.lat}}/{{this.long}}">{{this.name}}</a></h4>
+                              <form method="POST" action="/mytrips/favtrips" class="form-container-popup">    
+                              <label for="rem"><b>Select dates for:</b></label>             
+                              <input class= "input-form" name="destination" value={{this.name}}> 
+                              <p>Start date: <input id="start" type="date" name="start"></p>
+                              <p>End date: <input id="end" type="date" name="end"></p>
+                              <button type="submit" class="add">Add</button>
+                            </form>                      
                         </div>
                       </div>
                     </div>
@@ -117,9 +134,15 @@
                         <div class="col-md-4 mb-3">
                       <div class="card">
                         <img class="img-fluid" alt="100%x280"
-                          src="https://images.unsplash.com/photo-1532781914607-2031eca2f00d?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=7c625ea379640da3ef2e24f20df7ce8d">
+                          src="https://images.unsplash.com/photo-1476673160081-cf065607f449?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1472&q=80">
                         <div class="card-body">
-                          <h4 class="card-title"><a href="/mytrips/{{this.name}}/{{this.lat}}/{{this.long}}">{{this.name}}</a></h4>
+                              <form method="POST" action="/mytrips/favtrips" class="form-container-popup">    
+                              <label for="rem"><b>Select dates for:</b></label>             
+                              <input class= "input-form" name="destination" value={{this.name}}> 
+                              <p>Start date: <input id="start" type="date" name="start"></p>
+                              <p>End date: <input id="end" type="date" name="end"></p>
+                              <button type="submit" class="add">Add</button>
+                            </form>                   
                         </div>
                       </div>
                     </div>
@@ -132,9 +155,15 @@
                         <div class="col-md-4 mb-3">
                       <div class="card">
                         <img class="img-fluid" alt="100%x280"
-                          src="https://images.unsplash.com/photo-1532781914607-2031eca2f00d?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=7c625ea379640da3ef2e24f20df7ce8d">
+                          src="https://images.unsplash.com/photo-1501446529957-6226bd447c46?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80">
                         <div class="card-body">
-                          <h4 class="card-title"><a href="/mytrips/{{this.name}}/{{this.lat}}/{{this.long}}">{{this.name}}</a></h4>
+                              <form method="POST" action="/mytrips/favtrips" class="form-container-popup">    
+                              <label for="rem"><b>Select dates for:</b></label>             
+                              <input class= "input-form" name="destination" value={{this.name}}> 
+                              <p>Start date: <input id="start" type="date" name="start"></p>
+                              <p>End date: <input id="end" type="date" name="end"></p>
+                              <button type="submit" class="add">Add</button>
+                            </form>                     
                         </div>
                       </div>
                     </div>
@@ -147,9 +176,15 @@
                         <div class="col-md-4 mb-3">
                       <div class="card">
                         <img class="img-fluid" alt="100%x280"
-                          src="https://images.unsplash.com/photo-1532781914607-2031eca2f00d?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=7c625ea379640da3ef2e24f20df7ce8d">
+                          src="https://images.unsplash.com/photo-1442570468985-f63ed5de9086?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1520&q=80">
                         <div class="card-body">
-                          <h4 class="card-title"><a href="/mytrips/{{this.name}}/{{this.lat}}/{{this.long}}">{{this.name}}</a></h4>
+                              <form method="POST" action="/mytrips/favtrips" class="form-container-popup">    
+                              <label for="rem"><b>Select dates for:</b></label>             
+                              <input class= "input-form" name="destination" value={{this.name}}> 
+                              <p>Start date: <input id="start" type="date" name="start"></p>
+                              <p>End date: <input id="end" type="date" name="end"></p>
+                              <button type="submit" class="add">Add</button>
+                            </form>                       
                         </div>
                       </div>
                     </div>
@@ -158,42 +193,5 @@
         </div>
         </div>
     </section>
-  <section class="cta text-center">
-      <div class="container">
-        <div class="py-5 text-center row justify-content-center">
-          <div class="col-md-8">
-            <form class="subscribe">
-              <div class="form-group row pt-3">
-                <div class="col-sm-8 col-md-9 mb-3">
-                  <input type="text" class="form-control form-control-lg" placeholder="Search for country">
-                </div>
-                <div class="col-sm-4 col-md-3">
-                  <button class="open-button" onclick="openForm()">Search</button>
-                  <div class="form-popup" id="myForm">
-                    <form method="POST" action="/mytrips" class="form-container">                    
-                      <label for="rem"><b>Insert Dates:</b></label>
-                      <input type="text" placeholder="Add new reminder" name="reminder" required/></input>
-
-                      <button type="submit" class="btn">Add</button>
-                      <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
 
 
-
-<script>
-function openForm() {
-  document.getElementById("myForm").style.display = "block";
-}
-
-function closeForm() {
-  document.getElementById("myForm").style.display = "none";
-}
-</script>
