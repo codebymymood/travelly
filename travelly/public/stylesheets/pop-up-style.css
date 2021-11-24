@@ -1,0 +1,93 @@
+/***************NÃO APAGUES CRL******************/
+
+#date {
+    width: 150px;
+    font-size: 14px;
+  }
+  
+  /***************POP UP FORM, NÃO APAGUES CRL**********/
+  
+  .open-button {
+    background-color: #555;
+    color: white;
+    padding: 12px 16px;
+    margin-top: 5px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: flex;
+    width: 80px;
+    border-radius: 5px;
+  }
+  
+  /* The popup form - hidden by default */
+  .form-popup {
+    display: none;
+    position: absolute;
+    top:300px;
+    left:40%;
+    border: 3px solid #f1f1f1;
+    background-color: rgba(0, 0, 0, 0.8);
+    box-shadow: 50px 50px 5000px  #9ea5ad;
+    border-radius: 8px;
+    font-weight: bolder;
+  }
+
+  .form-popup1{
+    display: none;
+    position: absolute;
+    top:10px;
+
+    border: 3px solid #f1f1f1;
+    background-color: rgba(0, 0, 0, 0.8);
+    box-shadow: 50px 50px 5000px  #9ea5ad;
+    border-radius: 8px;
+    font-weight: bolder;
+  }
+  
+
+
+  /* Add styles to the form container */
+  .form-container-popup {
+    width: 300px;
+    padding: 10px;
+    background-color: white;
+  }
+  
+  
+  /* Full-width input fields */
+  .input-form{
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+    font-weight: bolder;
+  }
+  
+
+  /* Set a style for the submit/login button */
+    .add {
+    background-color: #023047!important;
+    color: white;
+    padding: 15px 15px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin: 15px 15px 10px 10px 10px !important;
+    opacity: 0.8;
+    
+  }
+  
+  /* Add a red background color to the cancel button */
+  .cancel {
+    background-color: transparent;
+    font-size: 13px;
+    font-weight: bolder;
+  }
+  
+  /* Add some hover effects to buttons */
+  .form-container .btn:hover, .open-button:hover {
+    opacity: 1;
+  }
+  

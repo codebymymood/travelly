@@ -28,8 +28,7 @@ router.get("/mytrips", isLogged,(req, res, next) => {
         let nameResults6 = []
         let nameResults7 = []
 
-        
-        console.log(nameResults2)
+      
         for (let i = 0; i < result.length; i++) {
          nameResults.push(result[i])
 
@@ -46,7 +45,6 @@ router.get("/mytrips", isLogged,(req, res, next) => {
 router.post("/mytrips", (req, res, next) => {
   const city = req.body.city
   
- 
      axios.get(`https://api.opentripmap.com/0.1/en/places/geoname?name=${city}}&apikey=5ae2e3f221c38a28845f05b663d6442a707b83ae2816fa50a8844e82`)
        .then((response) => { 
                   
