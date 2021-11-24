@@ -63,8 +63,18 @@
                       <div class="card">
                         <img class="img-fluid" alt="100%x280"
                           src="https://images.unsplash.com/photo-1532781914607-2031eca2f00d?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=7c625ea379640da3ef2e24f20df7ce8d">
-                        <div class="card-body">
-                          <h4 class="card-title"><a href="/mytrips/{{this.name}}/{{this.lat}}/{{this.long}}">{{this.name}}</a></h4>
+                        <div class="card-body">                        
+                            <button class="card-title" onclick="openForm()">{{this.name}}</button>
+                             <div class="form-popup1" id="myForm">
+                              <form method="POST" action="/mytrips/{{this.name}}/{{this.lat}}/{{this.long}}" class="form-container-popup">
+                    
+                              <label for="rem"><b>Select dates:</b></label>
+                              <input class= "input-form" type="text" placeholder="{{this.name}}" name="reminder" />
+
+                              <button type="submit" class="add">Add</button>
+                              <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+                            </form>
+                           </div>
                         </div>
                       </div>
                     </div>
@@ -170,3 +180,12 @@
 
 
 
+<script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
