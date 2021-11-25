@@ -203,10 +203,10 @@ let userInfo = req.session.myProperty;
 ]
 */
 let locations = [
-  [51.5, -0.09],
-  [21.5, -0.09],
-  [41.5, -0.09],
-  [31.5, -0.09]
+  [51.5088234, -0.1266390],
+  [51.5079149, -0.1254802],
+  [51.5069912, -0.1272573],
+  [51.5085476, -0.1254458]
  ]
  res.render('trips/activities.hbs' , {username: userInfo.name, locations: JSON.stringify(locations),loc: JSON.stringify(loc), layout:'logged-in-layout.hbs'});
 // res.render('trips/activities.hbs' , {loc: JSON.stringify(loc), layout:'logged-in-layout.hbs'});

@@ -43,8 +43,8 @@
 </section>
 
 
-    <!-- uploaded pic shown here -->{{!-- 
-    <img class="profilePic"  src="{{image}}"/> --}}
+    <!-- uploaded pic shown here -->
+    
 <div>
     <label for="newProfilePhoto" class="upload-file-block">
       <div class="text-center">
@@ -56,6 +56,8 @@
           <form method="POST" action="/profile/edit/upload" enctype="multipart/form-data">
           <input type="file" name="imageUrl" accept="image/png, image/jpg">
           <button type="submit"></button> 
+          <img class="profilePic"  src="{{image}}"/> 
+          </form> 
         </div>
       </div>
     </label>
