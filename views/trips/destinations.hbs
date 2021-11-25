@@ -20,7 +20,7 @@
         <div class="list-group-activities">            
            
          {{#each name}}
-         {{!-- <p class="list-group-item list-group-item-agiction">{{this}}</p> --}}
+    
             <a href="#" class="list-group-item list-group-item-action">{{this}}</a>
            
           {{/each}}  
@@ -31,20 +31,15 @@
     <h3 class='reminder-title'>Don't forget</h3>
       <div class="col col-md-6 text-center">
         <div class="list-group-reminder">
-          {{#each description}}
-         <p class="list-group-item list-group-item-action">{{this}}</p>
-         
+        {{#each description}}
+          <p class="list-group-item list-group-item-action">{{this}}</p>
          {{/each}}
-
-                   
                 <button class="open-button" onclick="openForm()">Add</button>
                 <div class="form-popup" id="myForm">
                 <form method="POST" action="/mytrips/{{name}}/{{lat}}/{{long}}/{{start}}/{{end}}" class="form-container">
-                    
-                    <label for="rem"><b>New Reminder:</b></label>
+                    <label for="rem"><b class="reminder-label">New Reminder:</b></label>
                     <input type="hidden" name="action" value="new_reminder">
-                    <input class= "input-form" type="text" placeholder="Add new reminder" name="reminder" required />
-
+                    <input class= "input-form-reminder" type="text" placeholder="Add new reminder" name="reminder" required />
                     <button type="submit" class="add">Add</button>
                     <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
                 </form>
@@ -79,12 +74,14 @@
               <div class="carousel-inner">
                 <div class="carousel-item">
                   <div class="row">
-                        {{#each attractArr0}}
-                         
+                        {{#each attractArr0}}                        
                             <div class="col-md-4 mb-3">
                             <div class="card">                        
                                 <div class="card-body">
                                 <form method="POST" action="/mytrips/activities">
+<<<<<<< HEAD
+                                <button type='submit'><input class="card-title" name="activities" value={{this}}>{{this}}</input></button>
+=======
                                   {{!-- <input type="hidden" name="action" value="new_attraction"> --}}
                                   {{!-- <input type="hidden" name="lat" value="{{this.lat}}">
                                   <input type="hidden" name="long" value="{{this.long}}">
@@ -92,11 +89,11 @@
                                   
                                   <input class="card-title" name="activities" value={{this}}>{{this}}</input> 
                                 <button type='submit'></button>
+>>>>>>> 2fbf15424a9d3c8b97b5ed81f8139947fa036618
                                 </form> 
                                 </div>
                             </div>
-                            </div>
-                          
+                            </div>                          
                         {{/each}}                  
                     </div>
                   </div>

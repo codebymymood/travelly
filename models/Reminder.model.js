@@ -9,9 +9,7 @@ const ReminderSchema = new Schema({
   favTripsId: {
     type: Schema.Types.ObjectId,
     ref: 'favTrips'
-}
-
-   
+}   
 })
 
 

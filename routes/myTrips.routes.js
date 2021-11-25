@@ -5,6 +5,7 @@ const ReminderModel = require('../models/Reminder.model');
 const FavTripsModel = require('../models/favTrips.model');
 // const FavTrips = require("../models/favTrips.model");
 const { populate } = require("../models/favTrips.model");
+
 const isLogged = (req, res, next) => {
   req.session.myProperty ? next() : res.redirect('/auth')
 }
@@ -109,12 +110,10 @@ router.get('/mytrips/:name/:lat/:long/:start/:end', isLogged, (req, res, next) =
         attractArr.push(attractionName[i].properties.name) //, lat:123, long:456
       }
       
-    }
+    }   
     
-     
-     console.log(description)
-     res.render('trips/destinations.hbs', {name, lat, long, start, end, description, layout:'logged-in-layout.hbs', attractArr0:attractArr.slice(0,3), attractArr1:attractArr.slice(3,6), attractArr2:attractArr.slice(6,9), attractArr3:attractArr.slice(9,12), attractArr4:attractArr.slice(12,15), attractArr5:attractArr.slice(15,18), attractArr6:attractArr.slice(18,21)})
-
+    res.render('trips/destinations.hbs', {name, lat, long, start, end, description, layout:'logged-in-layout.hbs', attractArr0:attractArr.slice(0,3), attractArr1:attractArr.slice(3,6), attractArr2:attractArr.slice(6,9), attractArr3:attractArr.slice(9,12), attractArr4:attractArr.slice(12,15), attractArr5:attractArr.slice(15,18), attractArr6:attractArr.slice(18,21)})
+   
   })
   .catch((err) => {
     next(err)
@@ -143,8 +142,7 @@ router.post('/mytrips/:name/:lat/:long/:start/:end', async(req, res, next) => {
     }
     catch(err) {
       next(err)
-    }
-  
+    }  
 
 });
   
