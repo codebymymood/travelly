@@ -128,7 +128,7 @@ router.post('/mytrips/:name/:lat/:long/:start/:end', async(req, res, next) => {
       
       let updateFavTrip = await FavTripsModel.findOneAndUpdate({userId: req.session.myProperty._id}, {$push:{reminder:newReminder._id}})
       
-
+      
       res.redirect(`/mytrips/${name}/${lat}/${long}/${start}/${end}`)
     }
     catch(err) {
@@ -137,8 +137,6 @@ router.post('/mytrips/:name/:lat/:long/:start/:end', async(req, res, next) => {
 
 });
   
-
-
 
 router.post('/mytrips/favtrips', (req, res, next) => {
   const {destination, start, end} = req.body
@@ -160,6 +158,28 @@ router.post('/mytrips/favtrips', (req, res, next) => {
   .catch((error)=>{
      next(error)
   })
+
+
+})
+
+router.post('/mytrips/delete-reminder', (req, res, next)=> {
+  let reminder = req.body.reminder
+  let start = ''
+  let end = ''
+  let name = ''
+
+  FavTripsModel.findByIdAndDelete({userId: req.session.myProperty._id}, {$pop:{reminder:reminder._id}})
+  .then((result) => {
+    start = result.start
+    end = result.end
+    name = result.name
+    res.redirect(`/mytrips/${name}/${lat}/${long}/${start}/${end}`)
+  })
+  .catch((err)=>{
+    next(err)
+  })
+
+
 
 
 })
