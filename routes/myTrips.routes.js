@@ -33,7 +33,7 @@ router.get("/mytrips", isLogged,(req, res, next) => {
 
         }
 
-        res.render('trips/mytrips.hbs',{name: userInfo.name, layout:'logged-in-layout.hbs', nameResults0:nameResults.slice(0,3), nameResults2:nameResults.slice(3,6), nameResults3:nameResults.slice(6,9), nameResults4:nameResults.slice(9,12), nameResults5:nameResults.slice(12,15), nameResults6:nameResults.slice(15,18), nameResults7:nameResults.slice(18,21)});
+        res.render('trips/mytrips.hbs',{username: userInfo.name, layout:'logged-in-layout.hbs', nameResults0:nameResults.slice(0,3), nameResults2:nameResults.slice(3,6), nameResults3:nameResults.slice(6,9), nameResults4:nameResults.slice(9,12), nameResults5:nameResults.slice(12,15), nameResults6:nameResults.slice(15,18), nameResults7:nameResults.slice(18,21)});
       })
       .catch((err) => {
         next(err)
@@ -57,19 +57,14 @@ router.post("/mytrips", (req, res, next) => {
 
 router.get('/mytrips/:name/:lat/:long/:start/:end', isLogged, (req, res, next) => { 
   const {name, lat, long, start, end} = req.params;
-  
-    
+  let userInfo = req.session.myProperty;
   let description = []
   let activities = []
 
   FavTripsModel.findOne({userId: req.session.myProperty._id})
      .populate('reminder')
      .then((result) => {
-      let date = new Date(result[0].start)
-      let start = date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate()
-      let endDate = new Date(result[0].end)
-      let end = endDate.getFullYear() + "-" + endDate.getMonth() + "-" + endDate.getDate()
-
+ 
 
       result.activities.forEach((act) => {
           
@@ -108,7 +103,7 @@ router.get('/mytrips/:name/:lat/:long/:start/:end', isLogged, (req, res, next) =
       
     }   
     
-    res.render('trips/destinations.hbs', {name, lat, long, start, end, description, activities, layout:'logged-in-layout.hbs', attractArr0:attractArr.slice(0,3), attractArr1:attractArr.slice(3,6), attractArr2:attractArr.slice(6,9), attractArr3:attractArr.slice(9,12), attractArr4:attractArr.slice(12,15), attractArr5:attractArr.slice(15,18), attractArr6:attractArr.slice(18,21)})
+    res.render('trips/destinations.hbs', {username: userInfo.name, name, lat, long, start, end, description, activities, layout:'logged-in-layout.hbs', attractArr0:attractArr.slice(0,3), attractArr1:attractArr.slice(3,6), attractArr2:attractArr.slice(6,9), attractArr3:attractArr.slice(9,12), attractArr4:attractArr.slice(12,15), attractArr5:attractArr.slice(15,18), attractArr6:attractArr.slice(18,21)})
    
   })
   .catch((err) => {
@@ -198,6 +193,7 @@ router.post('/mytrips/activities', (req, res, next) => {
 
 router.get("/mytrips/destination/map", isLogged, (req, res, next) => {
 let loc = [51.5, -0.09] //mudar p variavel
+let userInfo = req.session.myProperty;
 /*
  send an array of locations = [
  [51.5, -0.09],
@@ -212,7 +208,7 @@ let locations = [
   [41.5, -0.09],
   [31.5, -0.09]
  ]
- res.render('trips/activities.hbs' , {locations: JSON.stringify(locations),loc: JSON.stringify(loc), layout:'logged-in-layout.hbs'});
+ res.render('trips/activities.hbs' , {username: userInfo.name, locations: JSON.stringify(locations),loc: JSON.stringify(loc), layout:'logged-in-layout.hbs'});
 // res.render('trips/activities.hbs' , {loc: JSON.stringify(loc), layout:'logged-in-layout.hbs'});
 })
 

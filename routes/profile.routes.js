@@ -10,18 +10,23 @@ const isLogged = (req, res, next) => {
 router.get('/profile', isLogged, (req, res, next) => {
     
     let userInfo = req.session.myProperty
-        
+    let start = ""
+    let end = ""
+
     FavTrips.find({userId: req.session.myProperty._id })
     .then((result) => {
-        let date = new Date(result[0].start)
-        let start = date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate()
-        let endDate = new Date(result[0].end)
-        let end = endDate.getFullYear() + "-" + endDate.getMonth() + "-" + endDate.getDate()
-        if (result.length == 0)  {
-            res.render('profile/profile.hbs', {layout:'logged-in-layout.hbs', name: userInfo.name});
+        if (result.length > 0){
+            let date = new Date(result[0].start)
+            start = date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate()
+            let endDate = new Date(result[0].end)
+            end = endDate.getFullYear() + "-" + endDate.getMonth() + "-" + endDate.getDate()            
+        }
+
+        if (result.length == 0 )  {
+            res.render('profile/profile.hbs', {layout:'logged-in-layout.hbs', username: userInfo.name});
         }
         else {
-         res.render('profile/profile.hbs', {layout:'logged-in-layout.hbs', name: userInfo.name, destination: result[0].destination, start, end} )
+            res.render('profile/profile.hbs', {layout:'logged-in-layout.hbs', username: userInfo.name, destination: result[0].destination, start, end} )
  
         }
     })
