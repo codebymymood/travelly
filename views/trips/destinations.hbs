@@ -38,9 +38,9 @@
                 <button class="open-button" onclick="openForm()">Add</button>
                 <div class="form-popup" id="myForm">
                 <form method="POST" action="/mytrips/{{name}}/{{lat}}/{{long}}/{{start}}/{{end}}" class="form-container">
-                    <label for="rem"><b>New Reminder:</b></label>
+                    <label for="rem"><b class="reminder-label">New Reminder:</b></label>
                     <input type="hidden" name="action" value="new_reminder">
-                    <input class= "input-form" type="text" placeholder="Add new reminder" name="reminder" required />
+                    <input class= "input-form-reminder" type="text" placeholder="Add new reminder" name="reminder" required />
                     <button type="submit" class="add">Add</button>
                     <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
                 </form>
@@ -79,8 +79,8 @@
                             <div class="col-md-4 mb-3">
                             <div class="card">                        
                                 <div class="card-body">
-                                <form method="POST" action="/mytrips/:name/:lat/:long">
-                                <button type='submit'><input class="card-title" name="activities">{{this}}</input></button>
+                                <form method="POST" action="/mytrips/activities">
+                                <button type='submit'><input class="card-title" name="activities" value={{this}}>{{this}}</input></button>
                                 </form> 
                                 </div>
                             </div>
@@ -94,8 +94,8 @@
                     {{#each attractArr1}}
                             <div class="col-md-4 mb-3">
                             <div class="card">                        
-                                <form method="POST" action="/mytrips/:name/:lat/:long">
-                                <button type='submit'><h4 class="card-title">{{this}}</h4></button>
+                                <form method="POST" action="/mytrips/activities">
+                                <button type='submit'><input class="card-title" name="activities" value={{this}}>{{this}}</input></button>
                                 </form> 
                             </div>
                             </div>
@@ -107,8 +107,8 @@
                     {{#each attractArr2}}
                             <div class="col-md-4 mb-3">
                             <div class="card">                        
-                                <form method="POST" action="/mytrips/:name/:lat/:long">
-                                <button type='submit'><h4 class="card-title">{{this}}</h4></button>
+                                <form method="POST" action="/mytrips/activities">
+                                <button type='submit'><input class="card-title" name="activities" value={{this}}>{{this}}</input></button>
                                 </form> 
                             </div>
                             </div>
@@ -120,8 +120,8 @@
                     {{#each attractArr3}}
                             <div class="col-md-4 mb-3">
                             <div class="card">                        
-                                <form method="POST" action="/mytrips/:name/:lat/:long">
-                                <button type='submit'><h4 class="card-title">{{this}}</h4></button>
+                                <form method="POST" action="/mytrips/activities">
+                                <button type='submit'><input class="card-title" name="activities" value={{this}}>{{this}}</input></button>
                                 </form> 
                             </div>
                             </div>
@@ -133,8 +133,8 @@
                     {{#each attractArr4}}
                             <div class="col-md-4 mb-3">
                             <div class="card">                        
-                                <form method="POST" action="/mytrips/:name/:lat/:long">
-                                <button type='submit'><h4 class="card-title">{{this}}</h4></button>
+                                <form method="POST" action="/mytrips/activities">
+                                <button type='submit'><input class="card-title" name="activities" value={{this}}>{{this}}</input></button>
                                 </form> 
                             </div>
                             </div>
@@ -146,8 +146,8 @@
                         {{#each attractArr5}}
                                 <div class="col-md-4 mb-3">
                                 <div class="card">                        
-                                   <form method="POST" action="/mytrips/:name/:lat/:long">
-                                <button type='submit'><h4 class="card-title">{{this}}</h4></button>
+                                   <form method="POST" action="/mytrips/activities">
+                                <button type='submit'><input class="card-title" name="activities" value={{this}}>{{this}}</input></button>
                                 </form> 
                                 </div>
                                 </div>

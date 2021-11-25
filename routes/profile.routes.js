@@ -30,7 +30,7 @@ router.get('/profile/edit', isLogged, (req, res, next) => {
     UserModel.findById(req.session.myProperty._id)
     .then((result)=> {
     console.log(result.image)
-        res.render('profile/edit-profile.hbs', {layout: 'logged-in-layout.hbs', image: result.image})
+        res.render('profile/edit-profile.hbs', {layout: 'logged-in-layout.hbs', name: req.session.myProperty.name, image: result.image})
     })
     .catch((err) => {
         next(err)

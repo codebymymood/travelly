@@ -21,20 +21,20 @@ const FavTripsSchema = new Schema({
       },    
       
       
-      UserId: {
+      userId: {
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
 
-      cityId: {
+      reminder: [{
         type: Schema.Types.ObjectId,
-        ref: 'cities'
-    },
+        ref: 'Reminder'
+      }],
+    
 
       activities: {
          type: [String]
-       }
-      
+      }
   });
   
   const FavTrips = model("favTrips", FavTripsSchema);
