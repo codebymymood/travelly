@@ -3,7 +3,6 @@ const axios = require('axios');
 const CitiesModel = require('../models/Cities.model');
 const ReminderModel = require('../models/Reminder.model');
 const FavTripsModel = require('../models/favTrips.model');
-// const FavTrips = require("../models/favTrips.model");
 const { populate } = require("../models/favTrips.model");
 
 const isLogged = (req, res, next) => {
@@ -59,37 +58,28 @@ router.post("/mytrips", (req, res, next) => {
 router.get('/mytrips/:name/:lat/:long/:start/:end', isLogged, (req, res, next) => { 
   const {name, lat, long, start, end} = req.params;
   
-  // let activities = []
-
-  // FavTripsModel.findOne({userId: req.session.myProperty._id})
-  //   // .populate('activities')
-  //   .then((result) => {
-      
-  //     result.activities.forEach((activities) => {
-  //       activities.push(activities)
-  //     })
-  //   })
-  //   .catch((err) => {
-  //     next(err)
-  //   })
-  
-  
+    
   let description = []
   let activities = []
 
   FavTripsModel.findOne({userId: req.session.myProperty._id})
      .populate('reminder')
      .then((result) => {
+      let date = new Date(result[0].start)
+      let start = date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate()
+      let endDate = new Date(result[0].end)
+      let end = endDate.getFullYear() + "-" + endDate.getMonth() + "-" + endDate.getDate()
+
 
       result.activities.forEach((act) => {
-        
+          
         activities.push(act)
       })
-       console.log(result.activities, 'hey, here are the activities')
-        result.reminder.forEach((reminder) => {
+       
+      result.reminder.forEach((reminder) => {
           
-              description.push(reminder.description)
-          })
+        description.push(reminder.description)
+      })
 
      })
      .catch((err) => {
