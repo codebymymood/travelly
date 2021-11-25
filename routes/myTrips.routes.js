@@ -114,7 +114,7 @@ router.post('/mytrips/:name/:lat/:long/:start/:end', async(req, res, next) => {
   
     try {
       // let favTripId = await FavTripsModel.findOne({})
-      let newReminder = await ReminderModel.create({description: reminder})
+      let newReminder = await ReminderModel.create({description: reminder, favTripsId})
       // populate('favTripsId')
   
       res.redirect(`/mytrips/${name}/${lat}/${long}/${start}/${end}`)
