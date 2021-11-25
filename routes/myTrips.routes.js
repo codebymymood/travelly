@@ -5,6 +5,7 @@ const ReminderModel = require('../models/Reminder.model');
 const FavTripsModel = require('../models/favTrips.model');
 const FavTrips = require("../models/favTrips.model");
 const { populate } = require("../models/favTrips.model");
+
 const isLogged = (req, res, next) => {
   req.session.myProperty ? next() : res.redirect('/auth')
 }
@@ -57,6 +58,7 @@ router.post("/mytrips", (req, res, next) => {
 
 router.get('/mytrips/:name/:lat/:long/:start/:end', isLogged, (req, res, next) => { 
   const {name, lat, long, start, end} = req.params;
+  
 
   axios.get(`https://api.opentripmap.com/0.1/en/places/radius?lat=${lat}&lon=${long}&radius=5000&apikey=5ae2e3f221c38a28845f05b663d6442a707b83ae2816fa50a8844e82`)
   .then((response) => {
@@ -87,24 +89,25 @@ router.get('/mytrips/:name/:lat/:long/:start/:end', isLogged, (req, res, next) =
     next(err)
   })
 
-  //TODO:`get the reminders as well here and send dit to that hbs file
-      const {description} = req.body
-      
+  //TODO:`get the reminders as well here and send dit to that hbs file     
+      let description = []
       ReminderModel.find({})
-        .then(() => {
-          // res.render('trips/destinations.hbs', {name, lat, long, start, end, description, layout:'logged-in-layout.hbs'})
+      .then((result) => {
+        result.forEach((reminder) => {
+            description.push(reminder.description)
         })
-        .catch((err) => {
-          next(err)
-        })  
+      })
+      .catch((err) => {
+        next(err)
+      })
 })
 
 
-router.post('/mytrips/:name/:lat', async(req, res, next) => {
+router.post('/mytrips/:name/:lat:/:long/:start/:end', async(req, res, next) => {
   //THIS IS FOR MAKING THE REMINDERS LIST WORK
-  const {reminder, activities} = req.body 
+  const {reminder} = req.body
   const {name, lat, long, start, end} = req.params
-  console.log(req.body)
+ 
   try {
     let favTripId = await FavTripsModel.findOne({})
     let newReminder = await ReminderModel.create({description: reminder})

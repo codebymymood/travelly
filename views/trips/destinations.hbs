@@ -35,14 +35,15 @@
     <h3 class='reminder-title'>Don't forget</h3>
       <div class="col col-md-6 text-center">
         <div class="list-group-reminder">
-         <p class="list-group-item list-group-item-action">{{description}}</p>   
-             <button class="open-button" onclick="openForm()">Add</button>
+        {{#each description}}
+          <p class="list-group-item list-group-item-action">{{this}}</p>
+         {{/each}}
+                <button class="open-button" onclick="openForm()">Add</button>
                 <div class="form-popup" id="myForm">
                 <form method="POST" action="/mytrips/{{name}}/{{lat}}/{{long}}/{{start}}/{{end}}" class="form-container">
-                    
                     <label for="rem"><b>New Reminder:</b></label>
+                    <input type="hidden" name="action" value="new_reminder">
                     <input class= "input-form" type="text" placeholder="Add new reminder" name="reminder" required />
-
                     <button type="submit" class="add">Add</button>
                     <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
                 </form>
