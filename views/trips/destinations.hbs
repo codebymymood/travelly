@@ -19,15 +19,11 @@
       <div class="col col-md-6 text-center">
         <div class="list-group-activities">            
            
-           {{!-- {{#each}} --}}
-            <a href="#" class="list-group-item list-group-item-action">+</a>
-            <a href="#" class="list-group-item list-group-item-action">+</a>
-            <a href="#" class="list-group-item list-group-item-action">+</a>
-            <a href="#" class="list-group-item list-group-item-action">+</a>
-            <a href="#" class="list-group-item list-group-item-action">+</a>
-            <a href="#" class="list-group-item list-group-item-action">+</a>
-            <a href="#" class="list-group-item list-group-item-action disabled">+</a> 
-            {{!-- {{/each}}  --}}
+         {{#each name}}
+         {{!-- <p class="list-group-item list-group-item-action">{{this}}</p> --}}
+            <a href="#" class="list-group-item list-group-item-action">{{this}}</a>
+           
+          {{/each}}  
         </div>
       </div>
     </div>
@@ -94,8 +90,8 @@
                                   <input type="hidden" name="long" value="{{this.long}}">
                                   <input type="hidden" name="title" value="{{this.title}}"> --}}
                                   
-
-                                <button type='submit'><input class="card-title" name="activities" value={{this}}>{{this}}</input></button>
+                                  <input class="card-title" name="activities" value={{this}}>{{this}}</input> 
+                                <button type='submit'></button>
                                 </form> 
                                 </div>
                             </div>
@@ -111,7 +107,8 @@
                             <div class="col-md-4 mb-3">
                             <div class="card">                        
                                 <form method="POST" action="/mytrips/activities">
-                                <button type='submit'><input class="card-title" name="activities" value={{this}}>{{this}}</input></button>
+                                 
+                                <button type='submit'><input class="card-title" name="activities" value="{{this}}"></input></button>
                                 </form> 
                             </div>
                             </div>

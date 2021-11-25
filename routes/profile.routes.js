@@ -8,17 +8,17 @@ const isLogged = (req, res, next) => {
 }
 
 router.get('/profile', isLogged, (req, res, next) => {
-    const {destination, start, end} = req.body
-    let userInfo = req.session.myProperty
-    // let tripId = req.session.myProperty._id
     
-    // FavTrips.find({})
-    // .then(() => {
-    //     res.render('profile/profile.hbs', {layout:'logged-in-layout.hbs', name: userInfo.name, destination, start, end } )
-    // })
-    // .catch((err) => {
-    //     next(err)
-    // })
+    let userInfo = req.session.myProperty
+        
+    FavTrips.find({userId: req.session.myProperty._id })
+    .then((result) => {
+                
+        res.render('profile/profile.hbs', {layout:'logged-in-layout.hbs', name: userInfo.name, destination: result[0].destination, start: result[0].start, end: result[0].end } )
+    })
+    .catch((err) => {
+        next(err)
+    })
 
 
     
