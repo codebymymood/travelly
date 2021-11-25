@@ -17,7 +17,7 @@
     <div class="row">
       <h3 class="destination-activities"><span class="destination-h3">{{name}}</span> from <span class="destination-h3">{{start}}</span>  until <span class="destination-h3">{{end}}</span> </h3>
       <div class="col col-md-6 text-center">
-        <div class="list-group-activities">            
+        <div class="list-group-activities">         
            
            
             <a href="#" class="list-group-item list-group-item-action">+</a>
@@ -35,12 +35,8 @@
     <h3 class='reminder-title'>Don't forget</h3>
       <div class="col col-md-6 text-center">
         <div class="list-group-reminder">
-         <p class="list-group-item list-group-item-action">{{description}}</p>
-         
-         
-
-                   
-                <button class="open-button" onclick="openForm()">Add</button>
+         <p class="list-group-item list-group-item-action">{{description}}</p>   
+             <button class="open-button" onclick="openForm()">Add</button>
                 <div class="form-popup" id="myForm">
                 <form method="POST" action="/mytrips/{{name}}/{{lat}}/{{long}}/{{start}}/{{end}}" class="form-container">
                     
@@ -81,18 +77,16 @@
               <div class="carousel-inner">
                 <div class="carousel-item">
                   <div class="row">
-                        {{#each attractArr0}}
-                        
+                        {{#each attractArr0}}                        
                             <div class="col-md-4 mb-3">
                             <div class="card">                        
                                 <div class="card-body">
                                 <form method="POST" action="/mytrips/:name/:lat/:long">
-                                <button type='submit'><h4 class="card-title">{{this}}</h4></button>
+                                <button type='submit'><input class="card-title" name="activities">{{this}}</input></button>
                                 </form> 
                                 </div>
                             </div>
-                            </div>
-                          
+                            </div>                          
                         {{/each}}                  
                     </div>
                   </div>

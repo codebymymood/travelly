@@ -78,9 +78,7 @@ router.get('/mytrips/:name/:lat/:long/:start/:end', isLogged, (req, res, next) =
         attractArr.push(attractionName[i].properties.name)
       }
       
-    }
-
-    
+    }   
     
     res.render('trips/destinations.hbs', {name, lat, long, start, end, description, layout:'logged-in-layout.hbs', attractArr0:attractArr.slice(0,3), attractArr1:attractArr.slice(3,6), attractArr2:attractArr.slice(6,9), attractArr3:attractArr.slice(9,12), attractArr4:attractArr.slice(12,15), attractArr5:attractArr.slice(15,18), attractArr6:attractArr.slice(18,21)})
    
@@ -90,28 +88,29 @@ router.get('/mytrips/:name/:lat/:long/:start/:end', isLogged, (req, res, next) =
   })
 
   //TODO:`get the reminders as well here and send dit to that hbs file
-        const {description} = req.body
-        ReminderModel.find({})
+      const {description} = req.body
+      
+      ReminderModel.find({})
         .then(() => {
           // res.render('trips/destinations.hbs', {name, lat, long, start, end, description, layout:'logged-in-layout.hbs'})
         })
         .catch((err) => {
           next(err)
-        })
-
-  
+        })  
 })
 
 
 router.post('/mytrips/:name/:lat', async(req, res, next) => {
   //THIS IS FOR MAKING THE REMINDERS LIST WORK
-  const {reminder} = req.body 
+  const {reminder, activities} = req.body 
   const {name, lat, long, start, end} = req.params
   console.log(req.body)
   try {
     let favTripId = await FavTripsModel.findOne({})
     let newReminder = await ReminderModel.create({description: reminder})
     populate('favTripsId')
+
+    let addActivity = away 
 
     res.redirect(`/mytrips/${name}/${lat}/${long}/${start}/${end}`)
   }
