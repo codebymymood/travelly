@@ -127,7 +127,7 @@ router.post('/mytrips/:name/:lat/:long/:start/:end', async(req, res, next) => {
       let newReminder = await ReminderModel.create({description: reminder})
       
       let updateFavTrip = await FavTripsModel.findOneAndUpdate({userId: req.session.myProperty._id}, {$push:{reminder:newReminder._id}})
-      
+      let deleteReminder = await FavTripsModel.findByIdAndDelete({userId: req.session.myProperty._id}, {$pop:{reminder:newReminder.value.userId}})
       
       res.redirect(`/mytrips/${name}/${lat}/${long}/${start}/${end}`)
     }
@@ -178,9 +178,6 @@ router.post('/mytrips/delete-reminder', (req, res, next)=> {
   .catch((err)=>{
     next(err)
   })
-
-
-
 
 })
 

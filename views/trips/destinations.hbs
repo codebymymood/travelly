@@ -32,7 +32,7 @@
       <div class="col col-md-6 text-center">
         <div class="list-group-reminder">
         {{#each description}}
-              <form method="POST" action="/mytrips/delete-reminder">
+              <form method="POST" action="/mytrips/{{name}}/{{lat}}/{{long}}/{{start}}/{{end}}">
               <button type='submit'><input class="list-group-item list-group-item-action" name="reminder" value={{this}}></input></button>
               </form> 
           {{!-- <p class="list-group-item list-group-item-action">{{this}}<button>-</button></p> --}}
