@@ -58,6 +58,22 @@ router.post("/mytrips", (req, res, next) => {
 
 router.get('/mytrips/:name/:lat/:long/:start/:end', isLogged, (req, res, next) => { 
   const {name, lat, long, start, end} = req.params;
+  
+  // let activities = []
+
+  // FavTripsModel.findOne({userId: req.session.myProperty._id})
+  //   .populate('activities')
+  //   .then((result) => {
+
+  //     result.activities.forEach((activities) => {
+  //       activities.push(activities)
+  //     })
+  //   })
+  //   .catch((err) => {
+  //     next(err)
+  //   })
+  
+  
   let description = []
 
   FavTripsModel.findOne({userId: req.session.myProperty._id})
@@ -159,11 +175,16 @@ router.post('/mytrips/favtrips', (req, res, next) => {
 
 router.post('/mytrips/activities', (req, res, next) => {
 
-  let name = req.body
-  console.log(name)
+  let name = req.body.activities
+  // console.log(name)
 
-  FavTripsModel.create()
-
+  FavTripsModel.findOneAndUpdate({userId: req.session.myProperty._id}, {$push:{activities:name}})
+  .then((result) => {
+    console.log(result)
+  })
+  .catch((err) => {
+    next(err)
+  })
 
 })
 
