@@ -3,38 +3,38 @@ const { Schema, model } = require("mongoose");
 
 const FavTripsSchema = new Schema({
     
-      Destination: {
+      destination: {
         type: String,
         // required: true
       },     
     
     
-      Start: {
+      start: {
           type: Date,
           // required: true
       },    
     
     
-      End: {
+      end: {
         type: Date,
         // required: true         
       },    
       
       
-      UserId: {
+      userId: {
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
 
-      cityId: {
+      reminder: [{
         type: Schema.Types.ObjectId,
-        ref: 'cities'
-    },
+        ref: 'Reminder'
+      }],
+    
 
       activities: {
          type: [String]
-       }
-      
+      }
   });
   
   const FavTrips = model("favTrips", FavTripsSchema);

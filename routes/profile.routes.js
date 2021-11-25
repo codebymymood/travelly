@@ -8,8 +8,20 @@ const isLogged = (req, res, next) => {
 }
 
 router.get('/profile', isLogged, (req, res, next) => {
+    const {destination, start, end} = req.body
     let userInfo = req.session.myProperty
-    res.render('profile/profile.hbs', {layout:'logged-in-layout.hbs', name: userInfo.name} )
+    // let tripId = req.session.myProperty._id
+    
+    // FavTrips.find({})
+    // .then(() => {
+    //     res.render('profile/profile.hbs', {layout:'logged-in-layout.hbs', name: userInfo.name, destination, start, end } )
+    // })
+    // .catch((err) => {
+    //     next(err)
+    // })
+
+
+    
 })
 
 router.post('/profile', (req, res, next) => {
