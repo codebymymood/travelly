@@ -58,19 +58,19 @@ router.post("/mytrips", (req, res, next) => {
 router.get('/mytrips/:name/:lat/:long/:start/:end', isLogged, (req, res, next) => { 
   const {name, lat, long, start, end} = req.params;
   
-  let activities = []
+  // let activities = []
 
-  FavTripsModel.findOne({userId: req.session.myProperty._id})
-    .populate('activities')
-    .then((result) => {
+  // FavTripsModel.findOne({userId: req.session.myProperty._id})
+  //   .populate('activities')
+  //   .then((result) => {
 
-      result.activities.forEach((activities) => {
-        activities.push(activities)
-      })
-    })
-    .catch((err) => {
-      next(err)
-    })
+  //     result.activities.forEach((activities) => {
+  //       activities.push(activities)
+  //     })
+  //   })
+  //   .catch((err) => {
+  //     next(err)
+  //   })
   
   
   let description = []
