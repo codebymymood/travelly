@@ -19,9 +19,9 @@
       <div class="col col-md-6 text-center">
         <div class="list-group-activities">            
            
-         {{#each name}}
+         {{#each activities}}
     
-            <a href="#" class="list-group-item list-group-item-action">{{this}}</a>
+            <p class="list-group-item list-group-item-action">{{this}}</p>
            
           {{/each}}  
         </div>
@@ -79,17 +79,7 @@
                             <div class="card">                        
                                 <div class="card-body">
                                 <form method="POST" action="/mytrips/activities">
-<<<<<<< HEAD
                                 <button type='submit'><input class="card-title" name="activities" value={{this}}>{{this}}</input></button>
-=======
-                                  {{!-- <input type="hidden" name="action" value="new_attraction"> --}}
-                                  {{!-- <input type="hidden" name="lat" value="{{this.lat}}">
-                                  <input type="hidden" name="long" value="{{this.long}}">
-                                  <input type="hidden" name="title" value="{{this.title}}"> --}}
-                                  
-                                  <input class="card-title" name="activities" value={{this}}>{{this}}</input> 
-                                <button type='submit'></button>
->>>>>>> 2fbf15424a9d3c8b97b5ed81f8139947fa036618
                                 </form> 
                                 </div>
                             </div>

@@ -3,7 +3,6 @@ const axios = require('axios');
 const CitiesModel = require('../models/Cities.model');
 const ReminderModel = require('../models/Reminder.model');
 const FavTripsModel = require('../models/favTrips.model');
-// const FavTrips = require("../models/favTrips.model");
 const { populate } = require("../models/favTrips.model");
 
 const isLogged = (req, res, next) => {
@@ -59,31 +58,28 @@ router.post("/mytrips", (req, res, next) => {
 router.get('/mytrips/:name/:lat/:long/:start/:end', isLogged, (req, res, next) => { 
   const {name, lat, long, start, end} = req.params;
   
-  // let activities = []
-
-  // FavTripsModel.findOne({userId: req.session.myProperty._id})
-  //   .populate('activities')
-  //   .then((result) => {
-
-  //     result.activities.forEach((activities) => {
-  //       activities.push(activities)
-  //     })
-  //   })
-  //   .catch((err) => {
-  //     next(err)
-  //   })
-  
-  
+    
   let description = []
+  let activities = []
 
   FavTripsModel.findOne({userId: req.session.myProperty._id})
      .populate('reminder')
      .then((result) => {
-       
-        result.reminder.forEach((reminder) => {
+      let date = new Date(result[0].start)
+      let start = date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate()
+      let endDate = new Date(result[0].end)
+      let end = endDate.getFullYear() + "-" + endDate.getMonth() + "-" + endDate.getDate()
+
+
+      result.activities.forEach((act) => {
           
-              description.push(reminder.description)
-          })
+        activities.push(act)
+      })
+       
+      result.reminder.forEach((reminder) => {
+          
+        description.push(reminder.description)
+      })
 
      })
      .catch((err) => {
@@ -112,7 +108,7 @@ router.get('/mytrips/:name/:lat/:long/:start/:end', isLogged, (req, res, next) =
       
     }   
     
-    res.render('trips/destinations.hbs', {name, lat, long, start, end, description, layout:'logged-in-layout.hbs', attractArr0:attractArr.slice(0,3), attractArr1:attractArr.slice(3,6), attractArr2:attractArr.slice(6,9), attractArr3:attractArr.slice(9,12), attractArr4:attractArr.slice(12,15), attractArr5:attractArr.slice(15,18), attractArr6:attractArr.slice(18,21)})
+    res.render('trips/destinations.hbs', {name, lat, long, start, end, description, activities, layout:'logged-in-layout.hbs', attractArr0:attractArr.slice(0,3), attractArr1:attractArr.slice(3,6), attractArr2:attractArr.slice(6,9), attractArr3:attractArr.slice(9,12), attractArr4:attractArr.slice(12,15), attractArr5:attractArr.slice(15,18), attractArr6:attractArr.slice(18,21)})
    
   })
   .catch((err) => {
@@ -176,11 +172,23 @@ router.post('/mytrips/favtrips', (req, res, next) => {
 router.post('/mytrips/activities', (req, res, next) => {
 
   let name = req.body.activities
-  // console.log(name)
+  
+  let start = ''
+  let end = ''
 
   FavTripsModel.findOneAndUpdate({userId: req.session.myProperty._id}, {$push:{activities:name}})
   .then((result) => {
-    console.log(result)
+    start = result.start
+    end = result.end
+
+        CitiesModel.find({name: result.destination})
+            .then((result)=>{
+              const {name, lat, long} = result[0]
+              res.redirect(`/mytrips/${name}/${lat}/${long}/${start}/${end}`)
+            })
+            .catch((error)=>{
+              next(error)
+            })
   })
   .catch((err) => {
     next(err)

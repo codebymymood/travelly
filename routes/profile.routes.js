@@ -13,8 +13,17 @@ router.get('/profile', isLogged, (req, res, next) => {
         
     FavTrips.find({userId: req.session.myProperty._id })
     .then((result) => {
-                
-        res.render('profile/profile.hbs', {layout:'logged-in-layout.hbs', name: userInfo.name, destination: result[0].destination, start: result[0].start, end: result[0].end } )
+        let date = new Date(result[0].start)
+        let start = date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate()
+        let endDate = new Date(result[0].end)
+        let end = endDate.getFullYear() + "-" + endDate.getMonth() + "-" + endDate.getDate()
+        if (result.length == 0)  {
+            res.render('profile/profile.hbs', {layout:'logged-in-layout.hbs', name: userInfo.name});
+        }
+        else {
+         res.render('profile/profile.hbs', {layout:'logged-in-layout.hbs', name: userInfo.name, destination: result[0].destination, start, end} )
+ 
+        }
     })
     .catch((err) => {
         next(err)
