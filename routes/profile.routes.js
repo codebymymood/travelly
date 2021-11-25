@@ -76,7 +76,3 @@ router.post('/profile/edit/upload', uploader.single("imageUrl"), (req, res, next
     .catch((err) => {
         next(err)
     })
-
-})
-
-module.exports = router;
