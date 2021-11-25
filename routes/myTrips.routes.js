@@ -77,7 +77,7 @@ router.get('/mytrips/:name/:lat/:long/:start/:end', isLogged, (req, res, next) =
     for (let i = 0; i < 100; i++) {
       
       if(attractionName[i].properties.name !== '' && attractArr.includes(attractionName[i].properties.name) == false && attractArr.length < 20) {
-        attractArr.push(attractionName[i].properties.name)
+        attractArr.push(attractionName[i].properties.name) //, lat:123, long:456
       }
       
     }   
@@ -89,41 +89,44 @@ router.get('/mytrips/:name/:lat/:long/:start/:end', isLogged, (req, res, next) =
     next(err)
   })
 
-  //TODO:`get the reminders as well here and send dit to that hbs file     
-      let description = []
-      ReminderModel.find({})
-      .then((result) => {
-        result.forEach((reminder) => {
-            description.push(reminder.description)
+  //TODO:`get the reminders as well here and send dit to that hbs file
+        let description = []
+        ReminderModel.find({})
+        .then((result) => {
+          result.forEach((reminder) => {
+              description.push(reminder.description)
+          })
+          
         })
-      })
-      .catch((err) => {
-        next(err)
-      })
+        .catch((err) => {
+          next(err)
+        })      
+  
 })
 
 
-router.post('/mytrips/:name/:lat:/:long/:start/:end', async(req, res, next) => {
+router.post('/mytrips/:name/:lat/:long/:start/:end', async(req, res, next) => {
   //THIS IS FOR MAKING THE REMINDERS LIST WORK
-  const {reminder} = req.body
   const {name, lat, long, start, end} = req.params
- 
-  try {
-    let favTripId = await FavTripsModel.findOne({})
-    let newReminder = await ReminderModel.create({description: reminder})
-    populate('favTripsId')
+  let action = req.body.action
+  const {reminder} = req.body
 
-    let addActivity = away 
+  
+    try {
+      // let favTripId = await FavTripsModel.findOne({})
+      let newReminder = await ReminderModel.create({description: reminder})
+      // populate('favTripsId')
+  
+      res.redirect(`/mytrips/${name}/${lat}/${long}/${start}/${end}`)
+    }
+    catch(err) {
+      next(err)
+    }  
 
-    res.redirect(`/mytrips/${name}/${lat}/${long}/${start}/${end}`)
-  }
-  catch(err) {
-    next(err)
-  }
-
+});
   //THIS IS FOR MAKING THE ADD-ON ACTIVITIES WORK
 
-})
+
 
 router.post('/mytrips/favtrips', (req, res, next) => {
   const {destination, start, end} = req.body
