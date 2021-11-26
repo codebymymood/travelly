@@ -70,10 +70,11 @@ router.post('/profile/edit/upload', uploader.single("imageUrl"), (req, res, next
 
     UserModel.findByIdAndUpdate(req.session.myProperty._id, {image: req.file.path })
     .then(()=> {
-
         res.redirect('/profile');
     })
     .catch((err) => {
         next(err)
     })
-})
+});
+
+module.exports = router;

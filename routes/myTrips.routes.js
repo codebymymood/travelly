@@ -19,7 +19,7 @@ router.get("/mytrips", isLogged,(req, res, next) => {
       CitiesModel.find()
       .then((result) => {
         let nameResults = []
-        let nameResults0 = []
+        let nameResults0 = [] 
         let nameResults2 = []
         let nameResults3 = []
         let nameResults4 = []
@@ -64,15 +64,15 @@ router.get('/mytrips/:name/:lat/:long/:start/:end', isLogged, (req, res, next) =
   FavTripsModel.findOne({userId: req.session.myProperty._id})
      .populate('reminder')
      .then((result) => {
- 
-
-      result.activities.forEach((act) => {
-          
+      console.log(result.activites, "those are the activities")
+      if (!result.activities) {
+        result.activities = [""]
+      }
+      result.activities.forEach((act) => {          
         activities.push(act)
       })
-       
-      result.reminder.forEach((reminder) => {
-          
+
+      result.reminder.forEach((reminder) => {          
         description.push(reminder.description)
       })
 
@@ -102,7 +102,7 @@ router.get('/mytrips/:name/:lat/:long/:start/:end', isLogged, (req, res, next) =
       }
       
     }   
-    
+   
     res.render('trips/destinations.hbs', {username: userInfo.name, name, lat, long, start, end, description, activities, layout:'logged-in-layout.hbs', attractArr0:attractArr.slice(0,3), attractArr1:attractArr.slice(3,6), attractArr2:attractArr.slice(6,9), attractArr3:attractArr.slice(9,12), attractArr4:attractArr.slice(12,15), attractArr5:attractArr.slice(15,18), attractArr6:attractArr.slice(18,21)})
    
   })
@@ -118,16 +118,18 @@ router.get('/mytrips/:name/:lat/:long/:start/:end', isLogged, (req, res, next) =
 router.post('/mytrips/:name/:lat/:long/:start/:end', async(req, res, next) => {
   //THIS IS FOR MAKING THE REMINDERS LIST WORK
   const {name, lat, long, start, end} = req.params
-  // let action = req.body.action
+  
   const {reminder} = req.body
-
+  
+  
   
     try {
-      // let favTripId = await FavTripsModel.findOne({})
+
+           
+      
       let newReminder = await ReminderModel.create({description: reminder})
       
       let updateFavTrip = await FavTripsModel.findOneAndUpdate({userId: req.session.myProperty._id}, {$push:{reminder:newReminder._id}})
-      let deleteReminder = await FavTripsModel.findByIdAndDelete({userId: req.session.myProperty._id}, {$pop:{reminder:newReminder.value.userId}})
       
       res.redirect(`/mytrips/${name}/${lat}/${long}/${start}/${end}`)
     }
@@ -162,29 +164,11 @@ router.post('/mytrips/favtrips', (req, res, next) => {
 
 })
 
-router.post('/mytrips/delete-reminder', (req, res, next)=> {
-  let reminder = req.body.reminder
-  let start = ''
-  let end = ''
-  let name = ''
 
-  FavTripsModel.findByIdAndDelete({userId: req.session.myProperty._id}, {$pop:{reminder:reminder._id}})
-  .then((result) => {
-    start = result.start
-    end = result.end
-    name = result.name
-    res.redirect(`/mytrips/${name}/${lat}/${long}/${start}/${end}`)
-  })
-  .catch((err)=>{
-    next(err)
-  })
-
-})
 
 router.post('/mytrips/activities', (req, res, next) => {
 
   let name = req.body.activities
-  
   let start = ''
   let end = ''
 
@@ -194,7 +178,7 @@ router.post('/mytrips/activities', (req, res, next) => {
     end = result.end
 
         CitiesModel.find({name: result.destination})
-            .then((result)=>{
+              .then((result)=>{
               const {name, lat, long} = result[0]
               res.redirect(`/mytrips/${name}/${lat}/${long}/${start}/${end}`)
             })

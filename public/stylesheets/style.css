@@ -234,6 +234,21 @@ button {
   margin-left: 55%;
 }
 
+.card-title{
+  font-weight: bolder;
+  text-align: center;
+  width: 400px;
+  padding: 10px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.updatepicture{
+  position: absolute;
+  margin: 0;
+  right: 50%;
+}
 .location-ball {
   display: flex;
   flex-direction: row;
@@ -379,6 +394,23 @@ button {
   justify-content: flex-end;
 }
 
+.tripdate{
+  font-weight: bolder;
+}
+
+.list-group-item{
+  margin: auto;
+  pointer-events: none;
+  font-size: medium;
+}
+
+#reminderbutton{
+  font-weight: bolder;
+  width: 400px;
+  right: 0;
+  margin-bottom: -2px;
+}
+
 .save-changes-btn {
   color: #e1ecf7;
 	font-size: 24px;
@@ -386,5 +418,12 @@ button {
 	background-color: #023047;
 	box-shadow: 2px 3px 2px  #9ea5ad;
 	cursor: pointer;
+  padding:10px;
   margin-top: 20px;
+}
+
+.links{
+  font-size: large;
+  color: #023f5e;
+  text-decoration: none;
 }

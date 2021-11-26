@@ -42,22 +42,7 @@
   </div>
 </section>
 
-
-{{!-- <div >
-    <label >Profile Photo:</label>
-    <img class=“profilePic” src={{profilePic}} alt=“profile pic” />
-
-    <input id="image" type="file" name="profile_photo" placeholder="Photo" required="" capture>
-    <form method="POST" action="/profile/edit/upload" enctype="multipart/form-data">
-    <input type="file" name="imageUrl" accept="image/png, image/jpg">
-    <button type="submit">Upload</button> 
-</form>  
-</div> --}}
-
-
-    <!-- uploaded pic shown here -->
-    
-<div>
+<div class="updatepicture" >
     <label for="newProfilePhoto" class="upload-file-block">
       <div class="text-center">
         <div class="mb-2">
@@ -68,8 +53,10 @@
           <form method="POST" action="/profile/edit/upload" enctype="multipart/form-data">
           <input type="file" id="file" name="imageUrl" onchange="loadFile(event)" accept="image/png, image/jpg" style="display: none;">
           <img class="profilePic" id="output" width="200" src="{{image}}"/> 
-          <p><label for="file" style="cursor: pointer;">Upload Image</label></p>
-          <button type="submit"></button> 
+          <p>
+          <label for="file">Upload Image</label>
+          </p>
+          <button type="submit">click to upload the image</button> 
           
           </form> 
         </div>
