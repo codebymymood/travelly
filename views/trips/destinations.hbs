@@ -8,21 +8,15 @@
   </div>
 </section>
 
-
-
-
 <section class="pt-5 pb-5">
 <div class="container">
   <div class="d-flex justify-content-between" >
     <div class="row">
       <h3 class="destination-activities"><span class="destination-h3">{{name}}</span> from <span class="destination-h3">{{start}}</span>  until <span class="destination-h3">{{end}}</span> </h3>
       <div class="col col-md-6 text-center">
-        <div class="list-group-activities">            
-           
-         {{#each activities}}
-    
-            <p class="list-group-item list-group-item-action">{{this}}</p>
-           
+        <div class="list-group-activities">        
+           {{#each activities}}    
+            <p class="list-group-item list-group-item-action">{{this}}</p>           
           {{/each}}  
         </div>
       </div>
@@ -33,25 +27,30 @@
         <div class="list-group-reminder">
         {{#each description}}
               <form method="POST" action="/mytrips/{{name}}/{{lat}}/{{long}}/{{start}}/{{end}}">
-              <button type='submit'><input class="list-group-item list-group-item-action" name="reminder" value={{this}}></input></button>
+              <button type='submit' id="reminderbutton"><input class="list-group-item list-group-item-action" id="reminderbutton" name="reminder" value={{this}}></input></button>
               </form> 
-          {{!-- <p class="list-group-item list-group-item-action">{{this}}<button>-</button></p> --}}
          {{/each}}
                 <button class="open-button" onclick="openForm()">Add</button>
                 <div class="form-popup" id="myForm">
                 <form method="POST" action="/mytrips/{{name}}/{{lat}}/{{long}}/{{start}}/{{end}}" class="form-container">
                     <label for="rem"><b class="reminder-label">New Reminder:</b></label>
+                    <div class="popup-label">
                     <input type="hidden" name="action" value="new_reminder">
                     <input class= "input-form-reminder" type="text" placeholder="Add new reminder" name="reminder" required />
+                    </div>
+                    <div>
                     <button type="submit" class="add">Add</button>
+                    </div>
+                    <div>
                     <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+                    </div>
                 </form>
                 </div>
         </div>
       </div>
     </div>
   </div>
-        </div>
+</div>
 </section>
 
 <section class="pt-5 pb-5">
@@ -80,24 +79,21 @@
                         {{#each attractArr0}}                        
                             <div class="col-md-4 mb-3">
                             <div class="card">                        
-                                <div class="card-body">
-                                <form method="POST" action="/mytrips/activities">
-                                <button type='submit'><input class="card-title" name="activities" value={{this}}>{{this}}</input></button>
+                                <form method="POST" action="/mytrips/activities">                                 
+                                <button type='submit'><input class="card-title" name="activities" value="{{this}}"></input></button>
                                 </form> 
-                                </div>
                             </div>
-                            </div>                          
+                            </div>                      
                         {{/each}}                  
                     </div>
                   </div>
-                </div>
+
                 <div class="carousel-item active">
                   <div class="row">
                     {{#each attractArr1}}
                             <div class="col-md-4 mb-3">
                             <div class="card">                        
-                                <form method="POST" action="/mytrips/activities">
-                                 
+                                <form method="POST" action="/mytrips/activities">                                 
                                 <button type='submit'><input class="card-title" name="activities" value="{{this}}"></input></button>
                                 </form> 
                             </div>
@@ -110,8 +106,8 @@
                     {{#each attractArr2}}
                             <div class="col-md-4 mb-3">
                             <div class="card">                        
-                                <form method="POST" action="/mytrips/activities">
-                                <button type='submit'><input class="card-title" name="activities" value={{this}}>{{this}}</input></button>
+                                <form method="POST" action="/mytrips/activities">                                 
+                                <button type='submit'><input class="card-title" name="activities" value="{{this}}"></input></button>
                                 </form> 
                             </div>
                             </div>
@@ -123,8 +119,8 @@
                     {{#each attractArr3}}
                             <div class="col-md-4 mb-3">
                             <div class="card">                        
-                                <form method="POST" action="/mytrips/activities">
-                                <button type='submit'><input class="card-title" name="activities" value={{this}}>{{this}}</input></button>
+                                <form method="POST" action="/mytrips/activities">                                 
+                                <button type='submit'><input class="card-title" name="activities" value="{{this}}"></input></button>
                                 </form> 
                             </div>
                             </div>
@@ -136,8 +132,8 @@
                     {{#each attractArr4}}
                             <div class="col-md-4 mb-3">
                             <div class="card">                        
-                                <form method="POST" action="/mytrips/activities">
-                                <button type='submit'><input class="card-title" name="activities" value={{this}}>{{this}}</input></button>
+                                <form method="POST" action="/mytrips/activities">                                 
+                                <button type='submit'><input class="card-title" name="activities" value="{{this}}"></input></button>
                                 </form> 
                             </div>
                             </div>
@@ -147,13 +143,13 @@
                   <div class="carousel-item">
                     <div class="row">
                         {{#each attractArr5}}
-                                <div class="col-md-4 mb-3">
-                                <div class="card">                        
-                                   <form method="POST" action="/mytrips/activities">
-                                <button type='submit'><input class="card-title" name="activities" value={{this}}>{{this}}</input></button>
+                            <div class="col-md-4 mb-3">
+                            <div class="card">                        
+                                <form method="POST" action="/mytrips/activities">                                 
+                                <button type='submit'><input class="card-title" name="activities" value="{{this}}"></input></button>
                                 </form> 
-                                </div>
-                                </div>
+                            </div>
+                            </div>
                         {{/each}}   
                     </div>
                     </div>       

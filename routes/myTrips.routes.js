@@ -19,7 +19,7 @@ router.get("/mytrips", isLogged,(req, res, next) => {
       CitiesModel.find()
       .then((result) => {
         let nameResults = []
-        let nameResults0 = []
+        let nameResults0 = [] 
         let nameResults2 = []
         let nameResults3 = []
         let nameResults4 = []
@@ -64,15 +64,12 @@ router.get('/mytrips/:name/:lat/:long/:start/:end', isLogged, (req, res, next) =
   FavTripsModel.findOne({userId: req.session.myProperty._id})
      .populate('reminder')
      .then((result) => {
- 
 
-      result.activities.forEach((act) => {
-          
+      result.activities.forEach((act) => {          
         activities.push(act)
       })
        
-      result.reminder.forEach((reminder) => {
-          
+      result.reminder.forEach((reminder) => {          
         description.push(reminder.description)
       })
 
