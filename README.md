@@ -1,6 +1,9 @@
 # travelly
 <br>
 
+## Deployment Link ##
+https://travelly-your-trip-planner.herokuapp.com/
+
 ## Description
 .travelly is an app that the user uses in order to plan a detailed trip. When visiting the app, the user will be aware of the perks of using this app and is invited to either sign up and/or log in. When logged in, the user will be able to start planning a new trip and/or continue working on the previously saved planned trip(s). A trip can be planned by adding the trip dates, followed by picking tourist attractions that are suggested by the app and can be added to the daily planner. A map can also be viewed with the selected tourist locations and the user is also able to search for a specific location and add it to its planner. 
 <br>
